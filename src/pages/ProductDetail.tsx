@@ -8,6 +8,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ArrowLeft, Download, Leaf, Shield, Package, Truck, FileText, CheckCircle2 } from 'lucide-react';
 import { useRFQ } from '@/contexts/RFQContext';
 import { useToast } from '@/hooks/use-toast';
@@ -48,6 +50,33 @@ export default function ProductDetail() {
       bulk: 'Big bags (500-1000kg)',
       container: '20-26 MT per 40ft container'
     },
+    documents: {
+      tds: '/documents/rhdpe-f100-tds.pdf',
+      sds: '/documents/rhdpe-f100-sds.pdf',
+      certificate: '/documents/rhdpe-f100-certificate.pdf'
+    },
+    faqs: [
+      {
+        question: 'What is the minimum order quantity?',
+        answer: 'Our minimum order quantity is typically 1 container (20-26 MT). However, we can accommodate smaller orders based on availability. Contact us to discuss your specific requirements.'
+      },
+      {
+        question: 'Is this material suitable for food contact applications?',
+        answer: 'Yes, this grade is FDA contact compliant and suitable for food packaging applications. We provide full documentation including certificates of compliance with each shipment.'
+      },
+      {
+        question: 'What is the shelf life of this material?',
+        answer: 'When stored properly in a cool, dry place away from direct sunlight, this material has a shelf life of 24 months from the date of manufacture. We recommend using FIFO (First In, First Out) inventory management.'
+      },
+      {
+        question: 'Can you provide technical support for processing?',
+        answer: 'Absolutely! Our technical team provides comprehensive support including processing parameter optimization, troubleshooting, and application development assistance. We also offer on-site visits for major projects.'
+      },
+      {
+        question: 'What quality documentation is included with shipments?',
+        answer: 'Every shipment includes: Certificate of Analysis (CoA), Material Safety Data Sheet (MSDS/SDS), Technical Data Sheet (TDS), and relevant compliance certificates. Additional documentation available upon request.'
+      }
+    ],
     inStock: true
   };
 
@@ -171,6 +200,7 @@ export default function ProductDetail() {
               <TabsTrigger value="applications">Applications</TabsTrigger>
               <TabsTrigger value="processing">Processing</TabsTrigger>
               <TabsTrigger value="packaging">Packaging & Logistics</TabsTrigger>
+              <TabsTrigger value="faq">FAQ</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-6">
@@ -212,21 +242,93 @@ export default function ProductDetail() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Downloads Section */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="h-5 w-5" />
+                    Technical Documentation
+                  </CardTitle>
+                  <CardDescription>Download product datasheets, safety information, and certificates</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <a href={product.documents.tds} download>
+                        <Download className="h-4 w-4 mr-2" />
+                        <div className="text-left">
+                          <div className="font-medium">TDS</div>
+                          <div className="text-xs text-muted-foreground">Technical Datasheet</div>
+                        </div>
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <a href={product.documents.sds} download>
+                        <Download className="h-4 w-4 mr-2" />
+                        <div className="text-left">
+                          <div className="font-medium">SDS</div>
+                          <div className="text-xs text-muted-foreground">Safety Datasheet</div>
+                        </div>
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <a href={product.documents.certificate} download>
+                        <Download className="h-4 w-4 mr-2" />
+                        <div className="text-left">
+                          <div className="font-medium">Certificate</div>
+                          <div className="text-xs text-muted-foreground">Compliance Cert.</div>
+                        </div>
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="specifications" className="space-y-6">
               <Card>
                 <CardHeader>
                   <CardTitle>Technical Specifications</CardTitle>
+                  <CardDescription>Key material properties and test conditions</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
-                    {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between py-2 border-b border-border last:border-0">
-                        <span className="text-muted-foreground capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                        <span className="font-medium">{value}</span>
-                      </div>
-                    ))}
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="font-semibold">Property</TableHead>
+                          <TableHead className="font-semibold">Value</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell className="font-medium">Melt Flow Index (MFI)</TableCell>
+                          <TableCell>{product.specifications.mfi}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="font-medium">Density</TableCell>
+                          <TableCell>{product.specifications.density}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="font-medium">Tensile Strength</TableCell>
+                          <TableCell>{product.specifications.tensileStrength}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="font-medium">Elongation at Break</TableCell>
+                          <TableCell>{product.specifications.elongation}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="font-medium">Melting Point</TableCell>
+                          <TableCell>{product.specifications.meltingPoint}</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Test Methods:</strong> All specifications determined according to ASTM and ISO standards. Contact our technical team for complete test reports and methodology details.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -344,6 +446,34 @@ export default function ProductDetail() {
                         <span>Typical lead time: 2-4 weeks from order confirmation</span>
                       </li>
                     </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="faq" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Frequently Asked Questions</CardTitle>
+                  <CardDescription>Common questions about this product</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                    {product.faqs.map((faq, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className="text-left">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                  <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Still have questions?</strong> Our technical team is here to help. <Link to="/contact" className="text-primary hover:underline">Contact us</Link> for personalized assistance with your specific application.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
