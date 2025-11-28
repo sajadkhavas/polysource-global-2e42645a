@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
+import { generateArticleSchema } from '@/lib/structured-data';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -64,8 +66,34 @@ export default function BlogArticle() {
     `
   };
 
+  const articleSchema = generateArticleSchema({
+    headline: article.title,
+    description: 'A technical deep-dive into how MFI affects injection molding and extrusion parameters, with practical guidelines for matching material grades to your equipment.',
+    author: article.author,
+    datePublished: article.date,
+    publisher: {
+      name: 'PolySource Global',
+      url: 'https://polysource.global',
+      logo: 'https://polysource.global/logo.png',
+      description: 'Dubai-based polymer supplier'
+    }
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={article.title}
+        description="A technical deep-dive into how MFI affects injection molding and extrusion parameters, with practical guidelines for matching material grades to your equipment."
+        keywords="MFI, melt flow index, polymer processing, injection molding, extrusion"
+        type="article"
+        article={{
+          publishedTime: article.date,
+          author: article.author,
+          section: article.category,
+          tags: ['MFI', 'polymer processing', 'technical guide']
+        }}
+        structuredData={articleSchema}
+      />
       {/* Back Button */}
       <section className="bg-muted/50 py-4 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

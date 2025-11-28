@@ -36,7 +36,7 @@ export function Navigation() {
           <div className="flex items-center justify-between py-3 border-b border-border/50">
             <div className="flex items-center space-x-4">
               <Link to="/" className="flex items-center space-x-2.5">
-                <div className="h-9 w-9 rounded-lg bg-primary" />
+                <div className="h-9 w-9 rounded-lg bg-primary" aria-hidden="true" />
                 <div>
                   <span className="text-xl font-bold text-foreground block leading-none">PolySource Global</span>
                   <span className="text-xs text-muted-foreground block mt-0.5">Recycled-first polymer supply from Dubai</span>
@@ -193,7 +193,7 @@ export function Navigation() {
         <div className="flex lg:hidden h-16 items-center justify-between">
           {/* Left: Brand */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded bg-primary" />
+            <div className="h-8 w-8 rounded bg-primary" aria-hidden="true" />
             <span className="text-lg font-bold text-foreground">PolySource</span>
           </Link>
 

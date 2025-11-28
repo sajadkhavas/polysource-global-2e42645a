@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
+import { generateArticleSchema } from '@/lib/structured-data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
@@ -67,6 +69,11 @@ const mockPosts: BlogPost[] = [
 export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Technical Insights & Industry Updates"
+        description="Practical guides, material science deep-dives, and industry analysis on polymer processing, recycled materials, and sustainability regulations."
+        keywords="polymer processing, material science, recycled polymers, technical guides, industry insights"
+      />
       {/* Hero */}
       <section className="bg-muted/50 py-12 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

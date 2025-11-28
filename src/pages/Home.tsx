@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
+import { generateOrganizationSchema, generateWebSiteSchema } from '@/lib/structured-data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -84,8 +86,33 @@ export default function Home() {
     { name: 'Industrial', icon: Zap }
   ];
 
+  // Organization and Website structured data
+  const organizationSchema = generateOrganizationSchema({
+    name: 'PolySource Global',
+    url: 'https://polysource.global',
+    logo: 'https://polysource.global/logo.png',
+    description: 'Dubai-based polymer supplier specializing in recycled and virgin polymers with global shipping',
+    address: {
+      addressLocality: 'Dubai',
+      addressCountry: 'UAE'
+    },
+    contactPoint: {
+      telephone: '+971 4 XXX XXXX',
+      email: 'hello@polysource.global',
+      contactType: 'Customer Service'
+    }
+  });
+
+  const websiteSchema = generateWebSiteSchema('PolySource Global', 'https://polysource.global');
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Recycled-First Polymer Supply"
+        description="Dubai-based polymer supplier. Technical-grade recycled PE, PP, and virgin polymers with traceable quality. Serving 18+ countries with <48hr quote turnaround."
+        keywords="recycled polymers, virgin polymers, PE, PP, rPE, rPP, Dubai polymer supplier, polymer trading, plastic materials"
+        structuredData={[organizationSchema, websiteSchema]}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] text-primary-foreground py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

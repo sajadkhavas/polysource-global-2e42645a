@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
+import { generateOrganizationSchema } from '@/lib/structured-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Globe, Target, Users, Award } from 'lucide-react';
 
@@ -26,8 +28,25 @@ export default function About() {
     }
   ];
 
+  const organizationSchema = generateOrganizationSchema({
+    name: 'PolySource Global',
+    url: 'https://polysource.global',
+    logo: 'https://polysource.global/logo.png',
+    description: 'Dubai-based polymer supplier founded by engineers. Specializing in recycled and virgin polymers with technical expertise and global reach.',
+    address: {
+      addressLocality: 'Dubai',
+      addressCountry: 'UAE'
+    }
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Us"
+        description="Founded in 2019 in Dubai by materials engineers. Serving 18+ countries with 12,500+ tonnes of recycled and virgin polymers annually. Technical partnership over transactional trading."
+        keywords="about polysource, dubai polymer supplier, materials engineering, polymer trading"
+        structuredData={organizationSchema}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] text-primary-foreground py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

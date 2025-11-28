@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
+import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -105,8 +107,19 @@ export default function Products() {
     </div>
   );
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://polysource.global' },
+    { name: 'Products', url: 'https://polysource.global/products' }
+  ]);
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Product Catalog"
+        description="Browse our complete range of recycled and virgin polymers including rPE, rPP, rPET. All materials come with full technical data sheets and batch traceability."
+        keywords="polymer catalog, recycled polymers, virgin polymers, PE grades, PP grades, polymer materials"
+        structuredData={breadcrumbSchema}
+      />
       {/* Header */}
       <section className="bg-muted/50 py-12 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
