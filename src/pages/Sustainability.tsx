@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Leaf, CheckCircle2, Target, FileText, Users, Globe } from 'lucide-react';
@@ -37,6 +38,11 @@ export default function Sustainability() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Sustainability"
+        description="Recycled-first approach with traceable sourcing and certified partners. 6,200+ tonnes of recycled polymers supplied with full material traceability and ISO 14001 certified supply chain."
+        keywords="sustainable polymers, recycled polymers, circular economy, polymer traceability, ISO 14001"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-success/20 to-success/5 py-20 border-b border-success/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

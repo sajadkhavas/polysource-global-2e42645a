@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -50,6 +51,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Request a Quote"
+        description="Get a detailed polymer quotation within 48 hours. No WhatsApp chaos. Professional RFQ process for recycled and virgin polymers with clear pricing and specifications."
+        keywords="request quote, rfq polymer, polymer quotation, buy polymers, contact supplier"
+      />
       {/* Hero */}
       <section className="bg-muted/50 py-12 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
