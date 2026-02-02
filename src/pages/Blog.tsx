@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SEO } from '@/components/SEO';
-import { generateArticleSchema } from '@/lib/structured-data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -18,51 +17,51 @@ interface BlogPost {
 const mockPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'Understanding MFI (Melt Flow Index) and Its Impact on Processing',
-    excerpt: 'A technical deep-dive into how MFI affects injection molding and extrusion parameters, with practical guidelines for matching material grades to your equipment.',
-    category: 'Technical Guide',
+    title: 'راهنمای انتخاب دستگاه DSC مناسب برای آزمایشگاه شما',
+    excerpt: 'آشنایی با پارامترهای مهم در انتخاب کالریمتر روبشی تفاضلی (DSC) بر اساس نوع نمونه‌ها و کاربرد آزمایشگاه',
+    category: 'راهنمای خرید',
     date: '2024-02-15',
-    readTime: '8 min'
+    readTime: '۸ دقیقه'
   },
   {
     id: '2',
-    title: 'Recycled vs Virgin HDPE: When to Use Each',
-    excerpt: 'Breaking down the real performance differences between recycled and virgin HDPE grades, backed by lab data and production case studies.',
-    category: 'Material Science',
+    title: 'مقایسه روش‌های اسپکتروسکوپی: FTIR در برابر رامان',
+    excerpt: 'بررسی تفاوت‌ها، مزایا و معایب طیف‌سنجی مادون‌قرمز و رامان در شناسایی مواد',
+    category: 'مقاله تخصصی',
     date: '2024-02-10',
-    readTime: '6 min'
+    readTime: '۱۰ دقیقه'
   },
   {
     id: '3',
-    title: 'New EU Recycled Content Requirements: What Manufacturers Need to Know',
-    excerpt: 'Analysis of upcoming regulations requiring minimum recycled content in plastic products, and how to prepare your supply chain.',
-    category: 'Regulations',
+    title: 'نکات مهم در نگهداری و کالیبراسیون دستگاه‌های TGA',
+    excerpt: 'راهنمای عملی برای حفظ دقت و افزایش طول عمر دستگاه‌های آنالیز وزن‌سنجی حرارتی',
+    category: 'راهنمای فنی',
     date: '2024-02-05',
-    readTime: '10 min'
+    readTime: '۶ دقیقه'
   },
   {
     id: '4',
-    title: 'Processing Troubleshooting: Common Issues with Recycled PE',
-    excerpt: 'Practical solutions for warping, surface defects, and inconsistent cycle times when working with recycled polyethylene grades.',
-    category: 'Processing Tips',
+    title: 'کاربرد میکروسکوپ الکترونی SEM در تحلیل نانومواد',
+    excerpt: 'معرفی تکنیک‌های تصویربرداری SEM و کاربردهای آن در پژوهش‌های نانو',
+    category: 'مقاله تخصصی',
     date: '2024-01-28',
-    readTime: '7 min'
+    readTime: '۱۲ دقیقه'
   },
   {
     id: '5',
-    title: 'Dubai as a Polymer Trading Hub: Infrastructure and Logistics Advantages',
-    excerpt: 'Why Dubai-based suppliers can offer better lead times and reliability for MENA, Europe, and Asian markets.',
-    category: 'Industry Insights',
+    title: 'معرفی دستگاه‌های آنالیز مکانیکی دینامیکی (DMA)',
+    excerpt: 'آشنایی با اصول کار، کاربردها و نکات مهم در استفاده از دستگاه DMA',
+    category: 'معرفی محصول',
     date: '2024-01-20',
-    readTime: '5 min'
+    readTime: '۷ دقیقه'
   },
   {
     id: '6',
-    title: 'Material Traceability: What You Should Expect from Your Supplier',
-    excerpt: 'The difference between marketing claims and actual traceability data. What documentation should you demand?',
-    category: 'Quality Standards',
+    title: 'تفسیر نتایج آزمون کشش: از داده تا تحلیل',
+    excerpt: 'راهنمای جامع تفسیر منحنی تنش-کرنش و استخراج پارامترهای مکانیکی مواد',
+    category: 'راهنمای فنی',
     date: '2024-01-15',
-    readTime: '6 min'
+    readTime: '۹ دقیقه'
   }
 ];
 
@@ -70,9 +69,9 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Technical Insights & Industry Updates"
-        description="Practical guides, material science deep-dives, and industry analysis on polymer processing, recycled materials, and sustainability regulations."
-        keywords="polymer processing, material science, recycled polymers, technical guides, industry insights"
+        title="اخبار و مقالات تخصصی"
+        description="مقالات تخصصی، راهنماهای خرید و اخبار صنعت تجهیزات آزمایشگاهی. منابع آموزشی برای متخصصان آزمایشگاه."
+        keywords="مقالات آزمایشگاهی, راهنمای خرید تجهیزات, اخبار صنعت"
       />
       {/* Hero */}
       <section className="bg-muted/50 py-12 border-b border-border">
@@ -81,9 +80,9 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl font-bold mb-4 text-foreground">Technical Insights & Industry Updates</h1>
+            <h1 className="text-4xl font-bold mb-4 text-foreground">اخبار و مقالات تخصصی</h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
-              Practical guides, material science deep-dives, and industry analysis. Written by engineers, for engineers.
+              راهنماهای کاربردی، مقالات تخصصی و آخرین اخبار صنعت تجهیزات آزمایشگاهی
             </p>
           </motion.div>
         </div>
@@ -93,12 +92,11 @@ export default function Blog() {
       <section className="py-6 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2">
-            <Badge variant="secondary">All Posts</Badge>
-            <Badge variant="outline">Technical Guides</Badge>
-            <Badge variant="outline">Material Science</Badge>
-            <Badge variant="outline">Regulations</Badge>
-            <Badge variant="outline">Processing Tips</Badge>
-            <Badge variant="outline">Industry Insights</Badge>
+            <Badge variant="secondary">همه مطالب</Badge>
+            <Badge variant="outline">راهنمای خرید</Badge>
+            <Badge variant="outline">مقاله تخصصی</Badge>
+            <Badge variant="outline">راهنمای فنی</Badge>
+            <Badge variant="outline">معرفی محصول</Badge>
           </div>
         </div>
       </section>
@@ -130,21 +128,17 @@ export default function Blog() {
                     <CardContent>
                       <div className="flex items-center justify-between text-xs text-muted-foreground">
                         <div className="flex items-center">
-                          <Calendar className="h-3 w-3 mr-1" />
-                          {new Date(post.date).toLocaleDateString('en-US', { 
-                            month: 'short', 
-                            day: 'numeric', 
-                            year: 'numeric' 
-                          })}
+                          <Calendar className="h-3 w-3 ml-1" />
+                          {new Date(post.date).toLocaleDateString('fa-IR')}
                         </div>
                         <div className="flex items-center">
-                          <Clock className="h-3 w-3 mr-1" />
+                          <Clock className="h-3 w-3 ml-1" />
                           {post.readTime}
                         </div>
                       </div>
                       <div className="mt-4 flex items-center text-sm text-primary font-medium">
-                        Read Article
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        مطالعه مقاله
+                        <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                       </div>
                     </CardContent>
                   </Card>
@@ -160,27 +154,28 @@ export default function Blog() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="max-w-2xl mx-auto">
             <CardHeader className="text-center">
-              <CardTitle>Stay Updated</CardTitle>
+              <CardTitle>عضویت در خبرنامه</CardTitle>
               <CardDescription>
-                Get monthly insights on polymer processing, material science, and industry regulations delivered to your inbox.
+                آخرین مقالات تخصصی و اخبار صنعت را مستقیماً در ایمیل خود دریافت کنید
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form className="flex gap-2">
                 <input
                   type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 px-4 py-2 border border-border rounded-lg bg-background"
+                  placeholder="ایمیل شما"
+                  className="flex-1 px-4 py-2 border border-border rounded-lg bg-background ltr text-left"
+                  dir="ltr"
                 />
                 <button
                   type="submit"
                   className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
                 >
-                  Subscribe
+                  عضویت
                 </button>
               </form>
               <p className="text-xs text-center text-muted-foreground mt-3">
-                No spam. Unsubscribe anytime.
+                هر زمان می‌توانید لغو عضویت کنید
               </p>
             </CardContent>
           </Card>

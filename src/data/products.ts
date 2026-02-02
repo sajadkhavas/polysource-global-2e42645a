@@ -3,326 +3,234 @@ import { ProductCategory, PolymerType } from './product-taxonomy';
 export interface Product {
   id: string;
   name: string;
-  grade: string;
-  type: PolymerType;
-  category: ProductCategory;
-  recycled: boolean;
-  color: string;
-  mfi: string;
+  model: string;
+  type: string;
+  category: string;
+  brand: string;
   applications: string[];
   inStock: boolean;
   description?: string;
+  specs?: {
+    range?: string;
+    accuracy?: string;
+    resolution?: string;
+  };
 }
 
 export const products: Product[] = [
-  // Petrochemical Raw Materials
+  // Thermal Analysis Equipment
   {
-    id: 'ldpe-001',
-    name: 'LDPE Film Grade',
-    grade: 'LDPE-2420H',
-    type: 'ldpe',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Natural',
-    mfi: '2.0 g/10min',
-    applications: ['Blown Film', 'Packaging Film', 'Shopping Bags'],
+    id: 'dsc-001',
+    name: 'کالریمتر روبشی تفاضلی DSC 250',
+    model: 'DSC-250',
+    type: 'dsc',
+    category: 'thermal',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['تحلیل پلیمرها', 'فلزات', 'داروسازی', 'مواد غذایی'],
     inStock: true,
-    description: 'High-quality low-density polyethylene for film extrusion applications'
+    description: 'دستگاه DSC با دقت بالا برای اندازه‌گیری خواص حرارتی مواد',
+    specs: {
+      range: '-180°C تا 700°C',
+      accuracy: '±0.05°C',
+      resolution: '0.01 µW'
+    }
   },
   {
-    id: 'lldpe-001',
-    name: 'LLDPE Stretch Film Grade',
-    grade: 'LLDPE-218W',
-    type: 'lldpe',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Natural',
-    mfi: '2.0 g/10min',
-    applications: ['Stretch Film', 'Agricultural Film', 'Shrink Film'],
+    id: 'dsc-002',
+    name: 'کالریمتر روبشی تفاضلی DSC 450',
+    model: 'DSC-450',
+    type: 'dsc',
+    category: 'thermal',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['تحقیقات پیشرفته', 'مواد کامپوزیت', 'نانومواد'],
     inStock: true,
-    description: 'Linear low-density polyethylene optimized for stretch wrap applications'
+    description: 'دستگاه DSC پیشرفته با حساسیت فوق‌العاده',
+    specs: {
+      range: '-180°C تا 1000°C',
+      accuracy: '±0.02°C',
+      resolution: '0.001 µW'
+    }
   },
   {
-    id: 'hdpe-001',
-    name: 'HDPE Blow Molding Grade',
-    grade: 'HDPE-5502',
-    type: 'hdpe',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Natural',
-    mfi: '0.3 g/10min',
-    applications: ['Bottles', 'Containers', 'Jerry Cans'],
+    id: 'tga-001',
+    name: 'آنالایزر وزن‌سنجی حرارتی TGA 550',
+    model: 'TGA-550',
+    type: 'tga',
+    category: 'thermal',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['تحلیل ترکیبات', 'پایداری حرارتی', 'رطوبت‌سنجی'],
     inStock: true,
-    description: 'High-density polyethylene for blow molding bottles and containers'
+    description: 'دستگاه TGA برای تعیین تغییرات وزنی مواد با دما',
+    specs: {
+      range: 'دمای محیط تا 1000°C',
+      accuracy: '±0.1 µg',
+      resolution: '0.1 µg'
+    }
   },
   {
-    id: 'hdpe-002',
-    name: 'HDPE Pipe Grade',
-    grade: 'HDPE-PE100',
-    type: 'hdpe',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Black',
-    mfi: '0.2 g/10min',
-    applications: ['Water Pipes', 'Gas Pipes', 'Industrial Piping'],
+    id: 'dma-001',
+    name: 'آنالایزر مکانیکی دینامیکی DMA 850',
+    model: 'DMA-850',
+    type: 'dma',
+    category: 'thermal',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['خواص ویسکوالاستیک', 'دمای انتقال شیشه‌ای', 'مدول ذخیره'],
     inStock: true,
-    description: 'PE100 grade HDPE for pressure pipe applications'
-  },
-  {
-    id: 'pp-h-001',
-    name: 'PP Homopolymer Injection Grade',
-    grade: 'PP-H500',
-    type: 'pp-h',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Natural',
-    mfi: '25 g/10min',
-    applications: ['Containers', 'Caps', 'Household Items'],
-    inStock: true,
-    description: 'High-flow polypropylene homopolymer for injection molding'
-  },
-  {
-    id: 'pp-c-001',
-    name: 'PP Copolymer Film Grade',
-    grade: 'PP-R850',
-    type: 'pp-c',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Natural',
-    mfi: '8.0 g/10min',
-    applications: ['BOPP Film', 'CPP Film', 'Packaging'],
-    inStock: true,
-    description: 'Random copolymer PP for transparent film applications'
-  },
-  {
-    id: 'ps-001',
-    name: 'GPPS Crystal Grade',
-    grade: 'PS-1540',
-    type: 'ps',
-    category: 'petrochemical',
-    recycled: false,
-    color: 'Crystal',
-    mfi: '15 g/10min',
-    applications: ['Disposable Cutlery', 'CD Cases', 'Packaging'],
-    inStock: true,
-    description: 'General purpose polystyrene with excellent clarity'
+    description: 'دستگاه DMA برای تحلیل خواص مکانیکی وابسته به دما',
+    specs: {
+      range: '-190°C تا 600°C',
+      accuracy: '±1%',
+      resolution: '0.00001 N'
+    }
   },
 
-  // Recycled Materials - PE
+  // Spectroscopy Equipment
   {
-    id: 'rpe-001',
-    name: 'Recycled HDPE Heavy Granules',
-    grade: 'rHDPE-HG100',
-    type: 'rpe-heavy',
-    category: 'recycled',
-    recycled: true,
-    color: 'Mixed Colors',
-    mfi: '0.5-1.0 g/10min',
-    applications: ['Bins', 'Pallets', 'Industrial Parts'],
+    id: 'ftir-001',
+    name: 'طیف‌سنج مادون‌قرمز FTIR 4700',
+    model: 'FTIR-4700',
+    type: 'ftir',
+    category: 'spectroscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['شناسایی مواد', 'کنترل کیفیت', 'تحقیقات شیمی'],
     inStock: true,
-    description: 'Post-consumer recycled HDPE from bottles and containers'
+    description: 'طیف‌سنج FTIR با وضوح بالا و نرم‌افزار پیشرفته',
+    specs: {
+      range: '350-7800 cm⁻¹',
+      accuracy: '±0.01 cm⁻¹',
+      resolution: '0.4 cm⁻¹'
+    }
   },
   {
-    id: 'rpe-002',
-    name: 'Recycled LDPE Light Granules',
-    grade: 'rLDPE-LG200',
-    type: 'rpe-light',
-    category: 'recycled',
-    recycled: true,
-    color: 'Natural',
-    mfi: '1.5-3.0 g/10min',
-    applications: ['Bags', 'Film', 'Protective Packaging'],
+    id: 'uvvis-001',
+    name: 'اسپکتروفتومتر UV-Vis 3600',
+    model: 'UV-3600',
+    type: 'uv-vis',
+    category: 'spectroscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['تحلیل کمی', 'سینتیک واکنش', 'کنترل کیفیت'],
     inStock: true,
-    description: 'Recycled LDPE from post-industrial film waste'
+    description: 'طیف‌سنج UV-Vis دو پرتوی با دقت بالا',
+    specs: {
+      range: '185-3300 nm',
+      accuracy: '±0.3 nm',
+      resolution: '0.1 nm'
+    }
   },
   {
-    id: 'rpe-003',
-    name: 'Recycled PE Film Grade',
-    grade: 'rPE-F300',
-    type: 'rpe-film',
-    category: 'recycled',
-    recycled: true,
-    color: 'Grey',
-    mfi: '2.0-4.0 g/10min',
-    applications: ['Garbage Bags', 'Construction Film', 'Mulch Film'],
-    inStock: true,
-    description: 'Recycled polyethylene from post-consumer film waste'
-  },
-
-  // Recycled Materials - PP
-  {
-    id: 'rpp-001',
-    name: 'Recycled PP Injection Grade',
-    grade: 'rPP-I500',
-    type: 'rpp-injection',
-    category: 'recycled',
-    recycled: true,
-    color: 'Grey',
-    mfi: '25-35 g/10min',
-    applications: ['Automotive Parts', 'Containers', 'Furniture Parts'],
-    inStock: true,
-    description: 'High-quality recycled PP from post-industrial scrap'
-  },
-  {
-    id: 'rpp-002',
-    name: 'Recycled PP Textile Grade',
-    grade: 'rPP-T600',
-    type: 'rpp-textile',
-    category: 'recycled',
-    recycled: true,
-    color: 'Black',
-    mfi: '12-18 g/10min',
-    applications: ['Woven Bags', 'Carpet Backing', 'Geotextiles'],
-    inStock: true,
-    description: 'Recycled PP from textile and fiber applications'
-  },
-  {
-    id: 'rpp-003',
-    name: 'Recycled PP Colored Compound - Black',
-    grade: 'rPP-CB700',
-    type: 'rpp-colored',
-    category: 'recycled',
-    recycled: true,
-    color: 'Black',
-    mfi: '20-30 g/10min',
-    applications: ['Automotive Interior', 'Industrial Parts', 'Appliances'],
-    inStock: true,
-    description: 'Recycled PP compound with consistent black color'
-  },
-
-  // Other Recycled
-  {
-    id: 'rpet-001',
-    name: 'Recycled PET Flakes',
-    grade: 'rPET-FL100',
-    type: 'rpet',
-    category: 'recycled',
-    recycled: true,
-    color: 'Clear',
-    mfi: 'N/A',
-    applications: ['Fiber', 'Bottles', 'Strapping'],
-    inStock: true,
-    description: 'Clean recycled PET flakes from post-consumer bottles'
-  },
-
-  // Compounds & Masterbatches
-  {
-    id: 'mb-001',
-    name: 'Color Masterbatch - White',
-    grade: 'MB-W100',
-    type: 'color-mb',
-    category: 'compounds',
-    recycled: false,
-    color: 'White',
-    mfi: 'Carrier-dependent',
-    applications: ['Film', 'Injection Molding', 'Blow Molding'],
-    inStock: true,
-    description: 'High-opacity white masterbatch for PE and PP'
-  },
-  {
-    id: 'mb-002',
-    name: 'UV Protection Masterbatch',
-    grade: 'MB-UV500',
-    type: 'special-mb',
-    category: 'compounds',
-    recycled: false,
-    color: 'Natural',
-    mfi: 'Carrier-dependent',
-    applications: ['Outdoor Products', 'Agricultural Film', 'Pipes'],
-    inStock: true,
-    description: 'UV stabilizer masterbatch for outdoor applications'
-  },
-  {
-    id: 'comp-001',
-    name: 'PP + 20% CaCO₃ Compound',
-    grade: 'PP-CC20',
-    type: 'pp-caco3',
-    category: 'compounds',
-    recycled: false,
-    color: 'Natural',
-    mfi: '15-25 g/10min',
-    applications: ['Injection Molding', 'Containers', 'Automotive Parts'],
-    inStock: true,
-    description: 'Cost-effective PP compound with 20% calcium carbonate filler'
-  },
-  {
-    id: 'comp-002',
-    name: 'Glass Fiber Reinforced PP',
-    grade: 'PP-GF30',
-    type: 'fiber-reinforced',
-    category: 'compounds',
-    recycled: false,
-    color: 'Natural',
-    mfi: '10-20 g/10min',
-    applications: ['Automotive', 'Electrical Housings', 'Industrial Parts'],
-    inStock: true,
-    description: '30% glass fiber reinforced PP for high-strength applications'
-  },
-  {
-    id: 'comp-003',
-    name: 'PA6 + Talc Engineering Compound',
-    grade: 'PA6-T15',
-    type: 'engineering',
-    category: 'compounds',
-    recycled: false,
-    color: 'Black',
-    mfi: 'N/A',
-    applications: ['Under-hood Automotive', 'Electrical', 'Industrial'],
-    inStock: true,
-    description: 'Heat-resistant PA6 compound with talc reinforcement'
-  },
-
-  // Finished Parts & Products
-  {
-    id: 'fin-001',
-    name: 'Automotive Interior Trim Panel',
-    grade: 'PP-AUTO-001',
-    type: 'industrial',
-    category: 'finished',
-    recycled: false,
-    color: 'Black',
-    mfi: 'N/A',
-    applications: ['Automotive Interior', 'Dashboard Components'],
+    id: 'raman-001',
+    name: 'طیف‌سنج رامان RM-5000',
+    model: 'RM-5000',
+    type: 'raman',
+    category: 'spectroscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['شناسایی مولکولی', 'تحلیل ساختاری', 'نانومواد'],
     inStock: false,
-    description: 'Custom-molded PP interior trim panels for automotive'
+    description: 'طیف‌سنج رامان کانفوکال با لیزر ۵۳۲ نانومتر',
+    specs: {
+      range: '50-4000 cm⁻¹',
+      accuracy: '±0.5 cm⁻¹',
+      resolution: '1.5 cm⁻¹'
+    }
+  },
+
+  // Microscopy Equipment
+  {
+    id: 'sem-001',
+    name: 'میکروسکوپ الکترونی روبشی SEM-7500',
+    model: 'SEM-7500',
+    type: 'sem',
+    category: 'microscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['مورفولوژی سطح', 'آنالیز عنصری', 'نانوساختارها'],
+    inStock: true,
+    description: 'SEM با وضوح بالا مجهز به EDS و WDS',
+    specs: {
+      resolution: '0.8 nm',
+      range: '×20 تا ×1,000,000',
+      accuracy: '±2%'
+    }
   },
   {
-    id: 'fin-002',
-    name: 'Stackable Storage Container',
-    grade: 'PP-CONT-002',
-    type: 'household',
-    category: 'finished',
-    recycled: true,
-    color: 'Various',
-    mfi: 'N/A',
-    applications: ['Storage', 'Organization', 'Household'],
+    id: 'afm-001',
+    name: 'میکروسکوپ نیروی اتمی AFM-3100',
+    model: 'AFM-3100',
+    type: 'afm',
+    category: 'microscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['توپوگرافی سطح', 'خواص مکانیکی نانو', 'لایه‌های نازک'],
     inStock: true,
-    description: 'Durable stackable containers from recycled PP'
+    description: 'AFM پیشرفته با قابلیت‌های تصویربرداری چندگانه',
+    specs: {
+      resolution: '0.1 nm عمودی',
+      range: '100×100 µm',
+      accuracy: '±0.1 nm'
+    }
   },
   {
-    id: 'fin-003',
-    name: 'Industrial Pallet',
-    grade: 'HDPE-PAL-003',
-    type: 'industrial',
-    category: 'finished',
-    recycled: true,
-    color: 'Black',
-    mfi: 'N/A',
-    applications: ['Logistics', 'Warehousing', 'Material Handling'],
+    id: 'optical-001',
+    name: 'میکروسکوپ نوری پلاریزان PM-600',
+    model: 'PM-600',
+    type: 'optical',
+    category: 'microscopy',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['متالورژی', 'پتروگرافی', 'پلیمرها'],
     inStock: true,
-    description: 'Heavy-duty recycled HDPE pallets for industrial use'
+    description: 'میکروسکوپ پلاریزان با دوربین دیجیتال یکپارچه',
+    specs: {
+      resolution: '0.25 µm',
+      range: '×50 تا ×1000',
+      accuracy: '±1 µm'
+    }
+  },
+
+  // Material Testing Equipment
+  {
+    id: 'tensile-001',
+    name: 'دستگاه کشش یونیورسال UTM-5000',
+    model: 'UTM-5000',
+    type: 'tensile',
+    category: 'testing',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['آزمون کشش', 'فشار', 'خمش', 'پلاستیک'],
+    inStock: true,
+    description: 'دستگاه تست کشش یونیورسال با ظرفیت ۵۰ کیلونیوتن',
+    specs: {
+      range: '0.5 N تا 50 kN',
+      accuracy: '±0.5%',
+      resolution: '0.001 N'
+    }
   },
   {
-    id: 'fin-004',
-    name: 'Food-Grade Packaging Container',
-    grade: 'PP-PKG-004',
-    type: 'packaging',
-    category: 'finished',
-    recycled: false,
-    color: 'Clear',
-    mfi: 'N/A',
-    applications: ['Food Packaging', 'Takeaway Containers'],
+    id: 'hardness-001',
+    name: 'سختی‌سنج میکرو ویکرز HV-1000',
+    model: 'HV-1000',
+    type: 'hardness',
+    category: 'testing',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['سختی‌سنجی میکرو', 'لایه‌های پوشش', 'قطعات ظریف'],
     inStock: true,
-    description: 'Food-safe PP containers with excellent clarity'
+    description: 'سختی‌سنج میکرو با اندازه‌گیری خودکار',
+    specs: {
+      range: '10-2500 HV',
+      accuracy: '±3%',
+      resolution: '0.01 HV'
+    }
+  },
+  {
+    id: 'rheometer-001',
+    name: 'رئومتر چرخشی RH-3000',
+    model: 'RH-3000',
+    type: 'rheometer',
+    category: 'testing',
+    brand: 'آزمایشگاه پیشرفته',
+    applications: ['ویسکوزیته', 'خواص جریان', 'پلیمر مذاب'],
+    inStock: false,
+    description: 'رئومتر چرخشی با کنترل دما و استرس',
+    specs: {
+      range: '10⁻⁷ تا 10⁸ Pa·s',
+      accuracy: '±1%',
+      resolution: '1 nNm'
+    }
   }
 ];

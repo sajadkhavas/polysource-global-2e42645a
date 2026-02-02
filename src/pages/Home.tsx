@@ -6,18 +6,22 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Package, 
+  Microscope, 
   Shield, 
   Zap, 
   Globe, 
   FileText, 
   Truck,
-  Leaf,
+  Award,
   Target,
   Clock,
   Users,
   CheckCircle2,
-  ArrowRight
+  ArrowLeft,
+  Thermometer,
+  Waves,
+  Search as SearchIcon,
+  Gauge
 } from 'lucide-react';
 
 export default function Home() {
@@ -29,88 +33,87 @@ export default function Home() {
 
   const categories = [
     {
-      title: 'Recycled Polymers',
-      description: 'rPE, rPP, rPET with certified quality',
-      icon: Leaf,
-      link: '/products?category=recycled'
+      title: 'تحلیل حرارتی',
+      description: 'DSC، TGA، DMA و آنالایزرهای حرارتی',
+      icon: Thermometer,
+      link: '/products?category=thermal'
     },
     {
-      title: 'Virgin Polymers',
-      description: 'PE, PP grades for demanding applications',
-      icon: Package,
-      link: '/products?category=virgin'
+      title: 'اسپکتروسکوپی',
+      description: 'FTIR، UV-Vis، رامان و طیف‌سنج‌ها',
+      icon: Waves,
+      link: '/products?category=spectroscopy'
     },
     {
-      title: 'Compounds & Masterbatches',
-      description: 'Custom-formulated for your specifications',
-      icon: Target,
-      link: '/products?category=compounds'
+      title: 'میکروسکوپی',
+      description: 'SEM، TEM، AFM و میکروسکوپ‌های نوری',
+      icon: SearchIcon,
+      link: '/products?category=microscopy'
     },
     {
-      title: 'Finished Parts',
-      description: 'Injection molded and extruded components',
-      icon: Shield,
-      link: '/products?category=parts'
+      title: 'آزمون مواد',
+      description: 'دستگاه کشش، سختی‌سنج و رئومتر',
+      icon: Gauge,
+      link: '/products?category=testing'
     }
   ];
 
   const valueProps = [
     {
-      title: 'Batch Consistency',
-      description: 'Every shipment meets spec. No surprises, no rework, no excuses.',
-      icon: CheckCircle2
+      title: 'گارانتی و خدمات',
+      description: 'گارانتی معتبر و خدمات پس از فروش حرفه‌ای برای تمام محصولات',
+      icon: Shield
     },
     {
-      title: 'Digital RFQ Process',
-      description: 'Quote requests processed in under 48 hours. No WhatsApp chaos.',
-      icon: Clock
-    },
-    {
-      title: 'Technical Support',
-      description: 'Material selection guidance, processing parameters, troubleshooting.',
+      title: 'مشاوره تخصصی',
+      description: 'مشاوره رایگان برای انتخاب بهترین تجهیزات متناسب با نیاز شما',
       icon: Users
     },
     {
-      title: 'Transparent Sourcing',
-      description: 'Traceable material origins, certifications on demand, no greenwashing.',
-      icon: FileText
+      title: 'نصب و آموزش',
+      description: 'نصب تخصصی و آموزش کامل اپراتورها توسط کارشناسان مجرب',
+      icon: Award
+    },
+    {
+      title: 'پشتیبانی سریع',
+      description: 'پاسخگویی سریع به درخواست‌ها و رفع مشکلات در کمترین زمان',
+      icon: Clock
     }
   ];
 
   const industries = [
-    { name: 'Packaging', icon: Package },
-    { name: 'Automotive', icon: Truck },
-    { name: 'Construction', icon: Shield },
-    { name: 'Consumer Goods', icon: Target },
-    { name: 'Agriculture', icon: Leaf },
-    { name: 'Industrial', icon: Zap }
+    { name: 'دانشگاه‌ها', icon: Target },
+    { name: 'پتروشیمی', icon: Zap },
+    { name: 'داروسازی', icon: Shield },
+    { name: 'پلیمر', icon: Microscope },
+    { name: 'فلزات', icon: Gauge },
+    { name: 'نانو', icon: SearchIcon }
   ];
 
-  // Organization and Website structured data
   const organizationSchema = generateOrganizationSchema({
-    name: 'PolySource Global',
-    url: 'https://polysource.global',
-    logo: 'https://polysource.global/logo.png',
-    description: 'Dubai-based polymer supplier specializing in recycled and virgin polymers with global shipping',
+    name: 'آزمایشگاه پیشرفته',
+    url: 'https://azlab.ir',
+    logo: 'https://azlab.ir/logo.png',
+    description: 'تأمین‌کننده تجهیزات آزمایشگاهی پیشرفته شامل دستگاه‌های تحلیل حرارتی، اسپکتروسکوپی و میکروسکوپی',
     address: {
-      addressLocality: 'Dubai',
-      addressCountry: 'UAE'
+      addressLocality: 'تهران',
+      addressCountry: 'ایران'
     },
     contactPoint: {
-      telephone: '+971 4 XXX XXXX',
-      email: 'hello@polysource.global',
-      contactType: 'Customer Service'
+      telephone: '+98 21 XXXX XXXX',
+      email: 'info@azlab.ir',
+      contactType: 'خدمات مشتریان'
     }
   });
 
-  const websiteSchema = generateWebSiteSchema('PolySource Global', 'https://polysource.global');
+  const websiteSchema = generateWebSiteSchema('آزمایشگاه پیشرفته', 'https://azlab.ir');
 
   return (
     <div className="min-h-screen">
       <SEO
-        title="Recycled-First Polymer Supply"
-        description="Dubai-based polymer supplier. Technical-grade recycled PE, PP, and virgin polymers with traceable quality. Serving 18+ countries with <48hr quote turnaround."
-        keywords="recycled polymers, virgin polymers, PE, PP, rPE, rPP, Dubai polymer supplier, polymer trading, plastic materials"
+        title="تجهیزات آزمایشگاهی پیشرفته"
+        description="تأمین‌کننده تجهیزات آزمایشگاهی پیشرفته شامل دستگاه‌های تحلیل حرارتی DSC، TGA، اسپکتروسکوپی FTIR، میکروسکوپی SEM و آزمون مواد. گارانتی و پشتیبانی فنی."
+        keywords="تجهیزات آزمایشگاهی, DSC, TGA, FTIR, SEM, میکروسکوپ, طیف‌سنج, آنالیز حرارتی"
         structuredData={[organizationSchema, websiteSchema]}
       />
       {/* Hero Section */}
@@ -121,25 +124,25 @@ export default function Home() {
             {...fadeInUp}
           >
             <Badge variant="secondary" className="mb-4 bg-primary-foreground/10 text-primary-foreground border-primary-foreground/20">
-              Dubai to the World
+              تجهیزات آزمایشگاهی پیشرفته
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Recycled-First Polymer Supply, Engineered for Production-Level Reliability
+              تأمین تجهیزات آزمایشگاهی با کیفیت و گارانتی معتبر
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-3xl">
-              Dubai-based, globally shipping. Technical-grade recycled PE, PP, and virgin polymers with traceable quality. No WhatsApp RFQs. No batch surprises.
+              ارائه‌دهنده تجهیزات تحلیل حرارتی، اسپکتروسکوپی، میکروسکوپی و آزمون مواد با پشتیبانی فنی تخصصی و خدمات پس از فروش
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" variant="secondary">
-                <Link to="/products">Browse Products</Link>
+                <Link to="/products">مشاهده محصولات</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link to="/contact">Request Quote</Link>
+                <Link to="/contact">درخواست مشاوره</Link>
               </Button>
             </div>
             <p className="mt-6 text-sm text-primary-foreground/80 flex items-center">
-              <Globe className="h-4 w-4 mr-2" />
-              Serving 18+ countries across MENA, Europe, Asia & Africa
+              <Globe className="h-4 w-4 ml-2" />
+              خدمات‌رسانی به سراسر ایران
             </p>
           </motion.div>
         </div>
@@ -156,8 +159,8 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">12,500+</p>
-              <p className="text-sm text-muted-foreground">Tonnes Delivered Annually</p>
+              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">+۵۰۰</p>
+              <p className="text-sm text-muted-foreground">دستگاه نصب‌شده</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -166,8 +169,8 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">18+</p>
-              <p className="text-sm text-muted-foreground">Countries Served</p>
+              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">+۱۰۰</p>
+              <p className="text-sm text-muted-foreground">مشتری فعال</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -176,8 +179,8 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">50%</p>
-              <p className="text-sm text-muted-foreground">Recycled Content Available</p>
+              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">۱۵+</p>
+              <p className="text-sm text-muted-foreground">سال تجربه</p>
             </motion.div>
             <motion.div 
               className="text-center"
@@ -186,8 +189,8 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">&lt;48hr</p>
-              <p className="text-sm text-muted-foreground">Quote Turnaround</p>
+              <p className="text-3xl md:text-4xl font-bold text-foreground mb-2">۲۴/۷</p>
+              <p className="text-sm text-muted-foreground">پشتیبانی فنی</p>
             </motion.div>
           </div>
         </div>
@@ -203,10 +206,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Industrial-Grade Polymers, Simplified
+              دسته‌بندی تجهیزات آزمایشگاهی
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From recycled materials to virgin grades and custom compounds, all with consistent quality you can rely on.
+              مجموعه‌ای کامل از تجهیزات تحلیل و آنالیز برای آزمایشگاه‌های تحقیقاتی و صنعتی
             </p>
           </motion.div>
 
@@ -246,10 +249,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Why Leading Manufacturers Choose Us Over Traditional Traders
+              چرا آزمایشگاه پیشرفته را انتخاب کنید؟
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We're not another commodity trader. We're a technical partner focused on solving the real problems in recycled polymer supply.
+              ما فراتر از یک تأمین‌کننده تجهیزات هستیم. شریک فنی شما در مسیر موفقیت آزمایشگاه
             </p>
           </motion.div>
 
@@ -265,7 +268,7 @@ export default function Home() {
                 <Card>
                   <CardHeader>
                     <div className="flex items-start">
-                      <div className="p-2 bg-primary/10 rounded-lg mr-4">
+                      <div className="p-2 bg-primary/10 rounded-lg ml-4">
                         <prop.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
@@ -291,10 +294,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Trusted Across Industries
+              خدمات‌رسانی به صنایع مختلف
             </h2>
             <p className="text-lg text-muted-foreground">
-              Supplying production-grade polymers to manufacturers worldwide
+              تأمین تجهیزات آزمایشگاهی برای مراکز تحقیقاتی و صنعتی سراسر کشور
             </p>
           </motion.div>
 
@@ -317,7 +320,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sustainability */}
+      {/* Services */}
       <section className="py-20 bg-success/5 border-y border-success/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -327,32 +330,36 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Badge variant="outline" className="mb-4 border-success text-success">
-                Sustainability
+                خدمات ما
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Recycled-First. Traceable. Certified.
+                خدمات جامع آزمایشگاهی
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                We prioritize recycled polymers not as a marketing gimmick, but as a technical solution. Every batch comes with traceable sourcing data and third-party certifications.
+                از مشاوره اولیه تا نصب، آموزش و پشتیبانی مادام‌العمر، همراه شما هستیم.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-success mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground">Post-consumer and post-industrial recycled content available</span>
+                  <CheckCircle2 className="h-5 w-5 text-success ml-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">مشاوره تخصصی و انتخاب تجهیزات</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-success mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground">ISO 14001 certified supply chain partners</span>
+                  <CheckCircle2 className="h-5 w-5 text-success ml-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">نصب و راه‌اندازی تخصصی</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle2 className="h-5 w-5 text-success mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground">Material passports with full traceability data</span>
+                  <CheckCircle2 className="h-5 w-5 text-success ml-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">آموزش کامل اپراتورها</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-success ml-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-muted-foreground">کالیبراسیون و تعمیرات دوره‌ای</span>
                 </li>
               </ul>
               <Button asChild variant="outline" className="border-success text-success hover:bg-success hover:text-success-foreground">
-                <Link to="/sustainability">
-                  Learn More About Our Approach
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Link to="/contact">
+                  درخواست خدمات
+                  <ArrowLeft className="mr-2 h-4 w-4" />
                 </Link>
               </Button>
             </motion.div>
@@ -363,7 +370,7 @@ export default function Home() {
               className="relative"
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-success/20 to-success/5 flex items-center justify-center">
-                <Leaf className="h-32 w-32 text-success" />
+                <Microscope className="h-32 w-32 text-success" />
               </div>
             </motion.div>
           </div>
@@ -380,10 +387,10 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Technical Resources & Insights
+              منابع فنی و آموزشی
             </h2>
             <p className="text-lg text-muted-foreground">
-              Material data sheets, processing guides, and industry insights
+              دیتاشیت‌ها، راهنماهای کاربری و مقالات تخصصی
             </p>
           </motion.div>
 
@@ -391,29 +398,29 @@ export default function Home() {
             <Card>
               <CardHeader>
                 <FileText className="h-8 w-8 text-primary mb-3" />
-                <CardTitle>TDS & SDS Library</CardTitle>
+                <CardTitle>کاتالوگ محصولات</CardTitle>
                 <CardDescription>
-                  Download technical and safety data sheets for all our materials
+                  دانلود کاتالوگ کامل تجهیزات آزمایشگاهی با مشخصات فنی
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button asChild variant="link" className="p-0">
-                  <Link to="/resources">Access Resources →</Link>
+                  <Link to="/resources">دسترسی به منابع ←</Link>
                 </Button>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <Package className="h-8 w-8 text-primary mb-3" />
-                <CardTitle>Processing Guidelines</CardTitle>
+                <Microscope className="h-8 w-8 text-primary mb-3" />
+                <CardTitle>راهنمای انتخاب</CardTitle>
                 <CardDescription>
-                  Temperature profiles, cycle times, and optimization tips
+                  راهنمای انتخاب دستگاه مناسب برای کاربرد شما
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button asChild variant="link" className="p-0">
-                  <Link to="/blog">Read Guide →</Link>
+                  <Link to="/blog">مطالعه راهنما ←</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -421,14 +428,14 @@ export default function Home() {
             <Card>
               <CardHeader>
                 <Zap className="h-8 w-8 text-primary mb-3" />
-                <CardTitle>Industry News</CardTitle>
+                <CardTitle>اخبار و مقالات</CardTitle>
                 <CardDescription>
-                  Latest updates on polymer markets and sustainability regulations
+                  آخرین مقالات تخصصی و اخبار صنعت تجهیزات آزمایشگاهی
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button asChild variant="link" className="p-0">
-                  <Link to="/blog">View Blog →</Link>
+                  <Link to="/blog">مشاهده وبلاگ ←</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -436,8 +443,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -445,17 +452,17 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Source Reliable Polymers?
+              آماده‌اید آزمایشگاه خود را ارتقا دهید؟
             </h2>
-            <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
-              Get a detailed quote within 48 hours. No WhatsApp back-and-forth required.
+            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+              با کارشناسان ما تماس بگیرید و مشاوره رایگان دریافت کنید
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" variant="secondary">
-                <Link to="/contact">Start RFQ</Link>
+                <Link to="/contact">درخواست مشاوره رایگان</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Link to="/products">Browse Catalog</Link>
+                <Link to="/products">مشاهده محصولات</Link>
               </Button>
             </div>
           </motion.div>
