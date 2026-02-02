@@ -8,43 +8,43 @@ export default function About() {
   const values = [
     {
       icon: Target,
-      title: 'Technical Excellence',
-      description: 'We prioritize material science and processing expertise over sales pitches.'
+      title: 'تعهد به کیفیت',
+      description: 'ارائه تجهیزات با کیفیت و استاندارد جهانی، همراه با گارانتی معتبر'
     },
     {
       icon: Globe,
-      title: 'Global Reach',
-      description: 'Dubai hub position enables us to bridge MENA, European, Asian, and African markets efficiently.'
+      title: 'دانش روز',
+      description: 'به‌روز بودن با آخرین فناوری‌ها و تجهیزات آزمایشگاهی دنیا'
     },
     {
       icon: Users,
-      title: 'Partnership Mindset',
-      description: 'We work as an extension of your team, not just a vendor sending invoices.'
+      title: 'مشتری‌مداری',
+      description: 'پاسخگویی سریع و حرفه‌ای به نیازهای مشتریان در هر زمان'
     },
     {
       icon: Award,
-      title: 'Recycled-First',
-      description: 'We believe recycled polymers are the future when done right—with quality and transparency.'
+      title: 'تخصص فنی',
+      description: 'تیم متخصص با دانش فنی بالا در حوزه تجهیزات آزمایشگاهی'
     }
   ];
 
   const organizationSchema = generateOrganizationSchema({
-    name: 'PolySource Global',
-    url: 'https://polysource.global',
-    logo: 'https://polysource.global/logo.png',
-    description: 'Dubai-based polymer supplier founded by engineers. Specializing in recycled and virgin polymers with technical expertise and global reach.',
+    name: 'آزمایشگاه پیشرفته',
+    url: 'https://azlab.ir',
+    logo: 'https://azlab.ir/logo.png',
+    description: 'تأمین‌کننده تجهیزات آزمایشگاهی پیشرفته با بیش از ۱۵ سال تجربه',
     address: {
-      addressLocality: 'Dubai',
-      addressCountry: 'UAE'
+      addressLocality: 'تهران',
+      addressCountry: 'ایران'
     }
   });
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us"
-        description="Founded in 2019 in Dubai by materials engineers. Serving 18+ countries with 12,500+ tonnes of recycled and virgin polymers annually. Technical partnership over transactional trading."
-        keywords="about polysource, dubai polymer supplier, materials engineering, polymer trading"
+        title="درباره ما"
+        description="شرکت آزمایشگاه پیشرفته با بیش از ۱۵ سال تجربه در تأمین تجهیزات آزمایشگاهی پیشرفته، خدمات‌رسانی به بیش از ۱۰۰ مرکز تحقیقاتی و صنعتی در سراسر ایران"
+        keywords="درباره آزمایشگاه پیشرفته, تجهیزات آزمایشگاهی, تأمین‌کننده تجهیزات"
         structuredData={organizationSchema}
       />
       {/* Hero */}
@@ -56,10 +56,10 @@ export default function About() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Built by Engineers Who Got Tired of Unreliable Polymer Traders
+              همراه شما در مسیر پیشرفت علمی
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              We started PolySource because we experienced the same frustrations you have: inconsistent recycled materials, slow WhatsApp-based RFQs, and traders who disappear when problems arise.
+              شرکت آزمایشگاه پیشرفته با هدف تأمین تجهیزات آزمایشگاهی با کیفیت و ارائه خدمات فنی تخصصی، در خدمت مراکز تحقیقاتی و صنعتی کشور است.
             </p>
           </motion.div>
         </div>
@@ -74,16 +74,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
+              <h2 className="text-3xl font-bold mb-6 text-foreground">داستان ما</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
-                  Founded in 2019 in Dubai, PolySource Global emerged from a simple observation: the polymer trading industry was stuck in the past. While manufacturing technology evolved, supply chains remained opaque, quality was inconsistent, and communication happened through scattered WhatsApp threads.
+                  شرکت آزمایشگاه پیشرفته از سال ۱۳۸۸ فعالیت خود را در زمینه تأمین تجهیزات آزمایشگاهی آغاز کرد. با درک عمیق نیازهای آزمایشگاه‌های تحقیقاتی و صنعتی کشور، ما همواره در تلاش بوده‌ایم تا بهترین تجهیزات را با قیمت مناسب و خدمات پس از فروش عالی ارائه دهیم.
                 </p>
                 <p>
-                  Our founding team brought together materials engineering expertise, supply chain experience, and a commitment to doing things differently. We built relationships with certified recyclers and processors who shared our vision for traceable, consistent recycled materials.
+                  تیم ما متشکل از مهندسان و کارشناسان متخصص است که سال‌ها تجربه در حوزه تجهیزات آزمایشگاهی دارند. این تخصص به ما امکان می‌دهد تا مشاوره فنی دقیق و راهنمایی صحیح برای انتخاب تجهیزات مناسب ارائه دهیم.
                 </p>
                 <p>
-                  Today, we serve manufacturers across 18+ countries, delivering over 12,500 tonnes annually. But we've stayed true to our core principle: technical partnership over transactional trading.
+                  امروز با افتخار به بیش از ۱۰۰ مرکز تحقیقاتی، دانشگاه و شرکت صنعتی خدمات‌رسانی می‌کنیم و بیش از ۵۰۰ دستگاه آزمایشگاهی را نصب و راه‌اندازی کرده‌ایم.
                 </p>
               </div>
             </motion.div>
@@ -100,9 +100,9 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">What Drives Us</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">ارزش‌های ما</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              These aren't corporate buzzwords. They're the principles we use to make decisions every day.
+              اصولی که در تمام فعالیت‌های ما جاری است
             </p>
           </motion.div>
 
@@ -118,7 +118,7 @@ export default function About() {
                 <Card className="h-full">
                   <CardHeader>
                     <div className="flex items-start">
-                      <div className="p-2 bg-primary/10 rounded-lg mr-4">
+                      <div className="p-2 bg-primary/10 rounded-lg ml-4">
                         <value.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
@@ -134,7 +134,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Dubai Advantage */}
+      {/* Advantages */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -143,29 +143,29 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">The Dubai Advantage</h2>
+              <h2 className="text-3xl font-bold mb-6 text-foreground">مزایای همکاری با ما</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <Card>
                   <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">Port Hub</h3>
+                    <h3 className="font-semibold mb-2">گارانتی معتبر</h3>
                     <p className="text-sm text-muted-foreground">
-                      Strategic access to Jebel Ali Port, one of the world's largest container terminals
+                      تمام محصولات با گارانتی رسمی و خدمات پس از فروش ارائه می‌شوند
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">Time Zone Bridge</h3>
+                    <h3 className="font-semibold mb-2">پشتیبانی فنی</h3>
                     <p className="text-sm text-muted-foreground">
-                      Operating hours overlap with European mornings and Asian afternoons
+                      تیم فنی متخصص برای پشتیبانی و رفع مشکلات در کمترین زمان
                     </p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">Trade Infrastructure</h3>
+                    <h3 className="font-semibold mb-2">آموزش تخصصی</h3>
                     <p className="text-sm text-muted-foreground">
-                      Free zone benefits and established trade routes to 4 continents
+                      آموزش کامل اپراتورها پس از نصب و راه‌اندازی تجهیزات
                     </p>
                   </CardContent>
                 </Card>
@@ -184,9 +184,9 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Our Team</h2>
+            <h2 className="text-3xl font-bold mb-4 text-foreground">تیم ما</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Materials engineers, supply chain specialists, and industry veterans who understand both the technical and logistical challenges you face.
+              مهندسان، کارشناسان فنی و متخصصان با تجربه که متعهد به ارائه بهترین خدمات هستند
             </p>
           </motion.div>
 
@@ -194,7 +194,7 @@ export default function About() {
             <Card>
               <CardContent className="pt-6 text-center">
                 <p className="text-muted-foreground">
-                  Our team profiles and leadership bios will be added here. For now, know that we're a group of technical professionals who've worked across polymer manufacturing, recycling operations, and international trade.
+                  تیم ما متشکل از متخصصان حوزه تجهیزات آزمایشگاهی است که سال‌ها تجربه در زمینه نصب، راه‌اندازی و پشتیبانی دستگاه‌های پیشرفته دارند.
                 </p>
               </CardContent>
             </Card>

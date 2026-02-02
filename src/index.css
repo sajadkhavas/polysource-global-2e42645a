@@ -105,8 +105,13 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    direction: rtl;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Vazirmatn', sans-serif;
   }
 
   /* Custom scrollbar for mega menu */
@@ -120,5 +125,10 @@ All colors MUST be HSL.
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-border rounded hover:bg-border/80;
+  }
+
+  /* RTL specific adjustments */
+  .ltr {
+    direction: ltr;
   }
 }

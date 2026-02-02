@@ -24,7 +24,7 @@ export function DesktopDropdown({ item, isOpen, onOpenChange, isActive }: Deskto
             : 'text-foreground/90 hover:bg-muted hover:text-primary'
         )}
       >
-        {item.label.en}
+        {item.label}
       </Link>
     );
   }
@@ -43,12 +43,12 @@ export function DesktopDropdown({ item, isOpen, onOpenChange, isActive }: Deskto
             : 'text-foreground/90 hover:bg-muted hover:text-primary'
         )}
       >
-        {item.label.en}
-        <ChevronDown className={`h-3.5 w-3.5 ml-1 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        {item.label}
+        <ChevronDown className={`h-3.5 w-3.5 mr-1 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 min-w-[240px] bg-background border border-border shadow-xl rounded-lg z-[60] py-2">
+        <div className="absolute top-full right-0 mt-1 min-w-[240px] bg-background border border-border shadow-xl rounded-lg z-[60] py-2">
           {item.children.map((child) => (
             <Link
               key={child.id}
@@ -56,7 +56,7 @@ export function DesktopDropdown({ item, isOpen, onOpenChange, isActive }: Deskto
               onClick={() => onOpenChange(false)}
               className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
             >
-              {child.label.en}
+              {child.label}
             </Link>
           ))}
         </div>

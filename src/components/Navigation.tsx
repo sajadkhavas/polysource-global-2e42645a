@@ -18,7 +18,7 @@ export function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const { products } = useRFQ();
 
-  const polymerProductsItem = navigationData.find(item => item.id === 'polymer-products');
+  const labEquipmentItem = navigationData.find(item => item.id === 'lab-equipment');
   const servicesItem = navigationData.find(item => item.id === 'services');
   const newsItem = navigationData.find(item => item.id === 'insights');
   const aboutItem = navigationData.find(item => item.id === 'about');
@@ -34,25 +34,25 @@ export function Navigation() {
         <div className="hidden lg:block">
           {/* Top layer: Brand + Trust signals */}
           <div className="flex items-center justify-between py-3 border-b border-border/50">
-            <div className="flex items-center space-x-4">
-              <Link to="/" className="flex items-center space-x-2.5">
+            <div className="flex items-center gap-4">
+              <Link to="/" className="flex items-center gap-2.5">
                 <div className="h-9 w-9 rounded-lg bg-primary" aria-hidden="true" />
                 <div>
-                  <span className="text-xl font-bold text-foreground block leading-none">PolySource Global</span>
-                  <span className="text-xs text-muted-foreground block mt-0.5">Recycled-first polymer supply from Dubai</span>
+                  <span className="text-xl font-bold text-foreground block leading-none">آزمایشگاه پیشرفته</span>
+                  <span className="text-xs text-muted-foreground block mt-0.5">تأمین تجهیزات آزمایشگاهی پیشرفته</span>
                 </div>
               </Link>
             </div>
             
-            <div className="flex items-center space-x-6 text-xs text-muted-foreground">
-              <div className="flex items-center space-x-1.5">
-                <span className="font-semibold text-foreground">18+</span>
-                <span>countries</span>
+            <div className="flex items-center gap-6 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold text-foreground">+۱۰۰</span>
+                <span>مشتری فعال</span>
               </div>
               <div className="h-3 w-px bg-border" />
-              <div className="flex items-center space-x-1.5">
-                <span className="font-semibold text-foreground">12,500+</span>
-                <span>tonnes delivered annually</span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold text-foreground">+۵۰۰</span>
+                <span>دستگاه نصب‌شده</span>
               </div>
             </div>
           </div>
@@ -60,15 +60,15 @@ export function Navigation() {
           {/* Bottom layer: Navigation + Actions */}
           <div className="relative flex items-center justify-between h-14">
             {/* Center: Main Navigation */}
-            <div className="flex items-center space-x-1">
-              {/* Polymer Products with Mega Menu */}
-              {polymerProductsItem && (
+            <div className="flex items-center gap-1">
+              {/* Lab Equipment with Mega Menu */}
+              {labEquipmentItem && (
                 <div
-                  onMouseEnter={() => setMegaMenuOpen('polymer-products')}
+                  onMouseEnter={() => setMegaMenuOpen('lab-equipment')}
                   onMouseLeave={() => setMegaMenuOpen(null)}
                 >
                   <Link
-                    to={polymerProductsItem.href || '/products'}
+                    to={labEquipmentItem.href || '/products'}
                     className={cn(
                       'text-sm font-semibold transition-colors px-4 py-2 rounded-md',
                       isActive('/products')
@@ -76,18 +76,18 @@ export function Navigation() {
                         : 'text-foreground/90 hover:bg-muted hover:text-primary'
                     )}
                   >
-                    {polymerProductsItem.label.en}
+                    {labEquipmentItem.label}
                   </Link>
                 </div>
               )}
               
               {/* MegaMenu positioned relative to entire nav container */}
-              {megaMenuOpen === 'polymer-products' && polymerProductsItem && (
+              {megaMenuOpen === 'lab-equipment' && labEquipmentItem && (
                 <div
-                  onMouseEnter={() => setMegaMenuOpen('polymer-products')}
+                  onMouseEnter={() => setMegaMenuOpen('lab-equipment')}
                   onMouseLeave={() => setMegaMenuOpen(null)}
                 >
-                  <MegaMenu item={polymerProductsItem} onClose={() => setMegaMenuOpen(null)} />
+                  <MegaMenu item={labEquipmentItem} onClose={() => setMegaMenuOpen(null)} />
                 </div>
               )}
 
@@ -116,31 +116,13 @@ export function Navigation() {
                   isActive={isActive}
                 />
               )}
-              <Link 
-                to="/sustainability" 
-                className={cn(
-                  'text-sm font-semibold transition-colors px-4 py-2 rounded-md',
-                  isActive('/sustainability')
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-foreground/90 hover:bg-muted hover:text-primary'
-                )}
-              >
-                Sustainability
-              </Link>
             </div>
 
-            {/* Right: Actions */}
-            <div className="flex items-center space-x-3">
-
+            {/* Left: Actions */}
+            <div className="flex items-center gap-3">
               {/* Browse Products Link */}
               <Button variant="outline" size="sm" asChild>
-                <Link to="/products">Browse Products</Link>
-              </Button>
-
-              {/* Language Switcher */}
-              <Button variant="ghost" size="sm" className="gap-1">
-                <Globe className="h-4 w-4" />
-                <span className="text-xs">EN</span>
+                <Link to="/products">مشاهده محصولات</Link>
               </Button>
 
               {/* RFQ Basket */}
@@ -149,19 +131,19 @@ export function Navigation() {
                   <Button variant="outline" size="sm" className="relative">
                     <ShoppingCart className="h-4 w-4" />
                     {products.length > 0 && (
-                      <Badge className="absolute -right-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
+                      <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
                         {products.length}
                       </Badge>
                     )}
                   </Button>
                 </SheetTrigger>
-                <SheetContent>
+                <SheetContent side="left">
                   <SheetHeader>
-                    <SheetTitle>RFQ Basket</SheetTitle>
+                    <SheetTitle>سبد درخواست</SheetTitle>
                   </SheetHeader>
                   <div className="mt-4 space-y-4">
                     {products.length === 0 ? (
-                      <p className="text-sm text-muted-foreground">No products added yet</p>
+                      <p className="text-sm text-muted-foreground">هنوز محصولی اضافه نشده</p>
                     ) : (
                       <>
                         {products.map((product) => (
@@ -173,7 +155,7 @@ export function Navigation() {
                           </div>
                         ))}
                         <Button asChild className="w-full">
-                          <Link to="/contact">Request Quote</Link>
+                          <Link to="/contact">درخواست مشاوره</Link>
                         </Button>
                       </>
                     )}
@@ -183,7 +165,7 @@ export function Navigation() {
 
               {/* Request Quote CTA */}
               <Button asChild>
-                <Link to="/contact">Request Quote</Link>
+                <Link to="/contact">درخواست مشاوره</Link>
               </Button>
             </div>
           </div>
@@ -191,38 +173,33 @@ export function Navigation() {
 
         {/* Mobile: Single row header */}
         <div className="flex lg:hidden h-16 items-center justify-between">
-          {/* Left: Brand */}
-          <Link to="/" className="flex items-center space-x-2">
+          {/* Right: Brand */}
+          <Link to="/" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded bg-primary" aria-hidden="true" />
-            <span className="text-lg font-bold text-foreground">PolySource</span>
+            <span className="text-lg font-bold text-foreground">آزمایشگاه پیشرفته</span>
           </Link>
 
-          {/* Right: Controls */}
-          <div className="flex items-center space-x-2">
-            {/* Language */}
-            <Button variant="ghost" size="sm">
-              <Globe className="h-4 w-4" />
-            </Button>
-
+          {/* Left: Controls */}
+          <div className="flex items-center gap-2">
             {/* RFQ Basket */}
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="sm" className="relative">
                   <ShoppingCart className="h-4 w-4" />
                   {products.length > 0 && (
-                    <Badge className="absolute -right-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
+                    <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
                       {products.length}
                     </Badge>
                   )}
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent side="left">
                 <SheetHeader>
-                  <SheetTitle>RFQ Basket</SheetTitle>
+                  <SheetTitle>سبد درخواست</SheetTitle>
                 </SheetHeader>
                 <div className="mt-4 space-y-4">
                   {products.length === 0 ? (
-                    <p className="text-sm text-muted-foreground">No products added yet</p>
+                    <p className="text-sm text-muted-foreground">هنوز محصولی اضافه نشده</p>
                   ) : (
                     <>
                       {products.map((product) => (
@@ -234,7 +211,7 @@ export function Navigation() {
                         </div>
                       ))}
                       <Button asChild className="w-full">
-                        <Link to="/contact">Request Quote</Link>
+                        <Link to="/contact">درخواست مشاوره</Link>
                       </Button>
                     </>
                   )}

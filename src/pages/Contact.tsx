@@ -20,10 +20,9 @@ export default function Contact() {
     name: '',
     company: '',
     email: '',
-    country: '',
+    city: '',
     phone: '',
-    quantity: '',
-    application: '',
+    equipment: '',
     timeline: '',
     requirements: ''
   });
@@ -31,18 +30,16 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Quote Request Submitted",
-      description: "We'll respond within 48 hours with a detailed quotation.",
+      title: "درخواست ثبت شد",
+      description: "کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.",
     });
-    // Clear form and RFQ basket
     setFormData({
       name: '',
       company: '',
       email: '',
-      country: '',
+      city: '',
       phone: '',
-      quantity: '',
-      application: '',
+      equipment: '',
       timeline: '',
       requirements: ''
     });
@@ -52,9 +49,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Request a Quote"
-        description="Get a detailed polymer quotation within 48 hours. No WhatsApp chaos. Professional RFQ process for recycled and virgin polymers with clear pricing and specifications."
-        keywords="request quote, rfq polymer, polymer quotation, buy polymers, contact supplier"
+        title="درخواست مشاوره"
+        description="درخواست مشاوره رایگان برای انتخاب تجهیزات آزمایشگاهی. کارشناسان ما آماده پاسخگویی به سوالات شما هستند."
+        keywords="درخواست مشاوره, خرید تجهیزات آزمایشگاهی, تماس با ما"
       />
       {/* Hero */}
       <section className="bg-muted/50 py-12 border-b border-border">
@@ -63,9 +60,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl font-bold mb-4 text-foreground">Request a Quote</h1>
+            <h1 className="text-4xl font-bold mb-4 text-foreground">درخواست مشاوره</h1>
             <p className="text-lg text-muted-foreground max-w-3xl">
-              Get a detailed quotation within 48 hours. No WhatsApp back-and-forth. Just clear pricing, lead times, and technical specifications.
+              فرم زیر را تکمیل کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند و مشاوره رایگان ارائه دهند.
             </p>
           </motion.div>
         </div>
@@ -75,21 +72,21 @@ export default function Contact() {
       <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* RFQ Form */}
+            {/* Form */}
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Quote Request Form</CardTitle>
+                  <CardTitle>فرم درخواست مشاوره</CardTitle>
                   <CardDescription>
-                    All fields marked with * are required
+                    فیلدهای ستاره‌دار الزامی هستند *
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* RFQ Basket Products */}
+                    {/* Selected Products */}
                     {products.length > 0 && (
                       <div>
-                        <Label>Selected Products ({products.length})</Label>
+                        <Label>محصولات انتخاب‌شده ({products.length})</Label>
                         <div className="mt-2 space-y-2">
                           {products.map(product => (
                             <div key={product.id} className="flex items-center justify-between p-3 bg-muted rounded-lg">
@@ -114,81 +111,83 @@ export default function Contact() {
                     {/* Required Fields */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="name">Your Name *</Label>
+                        <Label htmlFor="name">نام و نام خانوادگی *</Label>
                         <Input
                           id="name"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          placeholder="John Doe"
+                          placeholder="نام کامل"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="company">Company *</Label>
+                        <Label htmlFor="company">نام سازمان/شرکت *</Label>
                         <Input
                           id="company"
                           required
                           value={formData.company}
                           onChange={(e) => setFormData({...formData, company: e.target.value})}
-                          placeholder="ABC Manufacturing Ltd."
+                          placeholder="نام سازمان یا دانشگاه"
                         />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email">ایمیل *</Label>
                         <Input
                           id="email"
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          placeholder="john@abc-manufacturing.com"
+                          placeholder="example@company.com"
+                          className="ltr text-left"
+                          dir="ltr"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="country">Country *</Label>
-                        <Select value={formData.country} onValueChange={(value) => setFormData({...formData, country: value})}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select country" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="uae">United Arab Emirates</SelectItem>
-                            <SelectItem value="saudi">Saudi Arabia</SelectItem>
-                            <SelectItem value="egypt">Egypt</SelectItem>
-                            <SelectItem value="turkey">Turkey</SelectItem>
-                            <SelectItem value="india">India</SelectItem>
-                            <SelectItem value="pakistan">Pakistan</SelectItem>
-                            <SelectItem value="kenya">Kenya</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <Label htmlFor="phone">شماره تماس *</Label>
+                        <Input
+                          id="phone"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          placeholder="۰۹۱۲۳۴۵۶۷۸۹"
+                          className="ltr text-left"
+                          dir="ltr"
+                        />
                       </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="city">شهر *</Label>
+                      <Select value={formData.city} onValueChange={(value) => setFormData({...formData, city: value})}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="انتخاب شهر" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="tehran">تهران</SelectItem>
+                          <SelectItem value="mashhad">مشهد</SelectItem>
+                          <SelectItem value="isfahan">اصفهان</SelectItem>
+                          <SelectItem value="tabriz">تبریز</SelectItem>
+                          <SelectItem value="shiraz">شیراز</SelectItem>
+                          <SelectItem value="other">سایر شهرها</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     {products.length === 0 && (
                       <div>
-                        <Label htmlFor="products">Products Needed *</Label>
+                        <Label htmlFor="equipment">تجهیزات مورد نیاز *</Label>
                         <Textarea
-                          id="products"
+                          id="equipment"
                           required={products.length === 0}
-                          placeholder="e.g., Recycled HDPE film grade, Virgin PP injection grade"
+                          placeholder="مثلاً: دستگاه DSC، طیف‌سنج FTIR، میکروسکوپ SEM"
                           rows={2}
                         />
                       </div>
                     )}
-
-                    <div>
-                      <Label htmlFor="quantity">Approximate Quantity (MT) *</Label>
-                      <Input
-                        id="quantity"
-                        required
-                        value={formData.quantity}
-                        onChange={(e) => setFormData({...formData, quantity: e.target.value})}
-                        placeholder="e.g., 20"
-                      />
-                    </div>
 
                     {/* Advanced Section Toggle */}
                     <div>
@@ -198,7 +197,7 @@ export default function Contact() {
                         onClick={() => setShowAdvanced(!showAdvanced)}
                         className="w-full"
                       >
-                        {showAdvanced ? 'Hide' : 'Show'} Additional Details (Optional)
+                        {showAdvanced ? 'پنهان کردن' : 'نمایش'} اطلاعات تکمیلی (اختیاری)
                       </Button>
                     </div>
 
@@ -210,86 +209,48 @@ export default function Contact() {
                         className="space-y-4 pt-4 border-t border-border"
                       >
                         <div>
-                          <Label htmlFor="phone">Phone Number</Label>
-                          <Input
-                            id="phone"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            placeholder="+971 XX XXX XXXX"
-                          />
-                        </div>
-
-                        <div>
-                          <Label htmlFor="application">Application / Industry</Label>
-                          <Input
-                            id="application"
-                            value={formData.application}
-                            onChange={(e) => setFormData({...formData, application: e.target.value})}
-                            placeholder="e.g., Packaging film, Automotive parts"
-                          />
-                        </div>
-
-                        <div>
-                          <Label htmlFor="timeline">Delivery Timeline</Label>
+                          <Label htmlFor="timeline">زمان‌بندی خرید</Label>
                           <Select value={formData.timeline} onValueChange={(value) => setFormData({...formData, timeline: value})}>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select timeline" />
+                              <SelectValue placeholder="انتخاب زمان‌بندی" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="urgent">Urgent (within 2 weeks)</SelectItem>
-                              <SelectItem value="1month">Within 1 month</SelectItem>
-                              <SelectItem value="flexible">Flexible timing</SelectItem>
-                              <SelectItem value="recurring">Recurring orders</SelectItem>
+                              <SelectItem value="urgent">فوری (کمتر از ۱ ماه)</SelectItem>
+                              <SelectItem value="1month">طی ۱ تا ۳ ماه</SelectItem>
+                              <SelectItem value="flexible">زمان‌بندی منعطف</SelectItem>
+                              <SelectItem value="research">فقط تحقیق و بررسی</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
 
                         <div>
-                          <Label htmlFor="requirements">Additional Requirements</Label>
+                          <Label htmlFor="requirements">توضیحات تکمیلی</Label>
                           <Textarea
                             id="requirements"
                             value={formData.requirements}
                             onChange={(e) => setFormData({...formData, requirements: e.target.value})}
-                            placeholder="Color preferences, certifications needed, custom specifications..."
+                            placeholder="مشخصات خاص مورد نیاز، سوالات فنی، یا هر توضیح دیگری..."
                             rows={4}
                           />
-                        </div>
-
-                        <div>
-                          <Label>File Upload (Optional)</Label>
-                          <div className="mt-2 flex items-center justify-center w-full">
-                            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-border border-dashed rounded-lg cursor-pointer hover:bg-muted/50 transition-colors">
-                              <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
-                                <p className="mb-2 text-sm text-muted-foreground">
-                                  <span className="font-semibold">Click to upload</span> or drag and drop
-                                </p>
-                                <p className="text-xs text-muted-foreground">
-                                  Technical drawings, specifications (PDF, DOC, max 10MB)
-                                </p>
-                              </div>
-                              <input type="file" className="hidden" />
-                            </label>
-                          </div>
                         </div>
                       </motion.div>
                     )}
 
                     {/* Submit */}
-                    <div className="flex items-start space-x-2">
+                    <div className="flex items-start gap-2">
                       <Checkbox id="privacy" required />
                       <Label htmlFor="privacy" className="text-sm text-muted-foreground cursor-pointer">
-                        I agree to the processing of my data for quote purposes and accept the privacy policy *
+                        با ثبت این فرم، موافقت خود را با سیاست حفظ حریم خصوصی اعلام می‌کنم *
                       </Label>
                     </div>
 
                     <Button type="submit" size="lg" className="w-full">
-                      Submit Quote Request
+                      ثبت درخواست مشاوره
                     </Button>
 
                     <p className="text-xs text-center text-muted-foreground">
-                      <Clock className="inline h-3 w-3 mr-1" />
-                      You'll receive a detailed quotation within 48 hours
+                      <Clock className="inline h-3 w-3 ml-1" />
+                      کارشناسان ما در کمتر از ۲۴ ساعت با شما تماس خواهند گرفت
                     </p>
                   </form>
                 </CardContent>
@@ -301,42 +262,42 @@ export default function Contact() {
               {/* Contact Info */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact Information</CardTitle>
+                  <CardTitle>اطلاعات تماس</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start">
-                    <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <MapPin className="h-5 w-5 text-primary ml-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-sm">Address</p>
+                      <p className="font-medium text-sm">آدرس</p>
                       <p className="text-sm text-muted-foreground">
-                        Dubai, United Arab Emirates
+                        تهران، ایران
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <Mail className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <Mail className="h-5 w-5 text-primary ml-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-sm">Email</p>
-                      <a href="mailto:hello@polysource.global" className="text-sm text-primary hover:underline">
-                        hello@polysource.global
+                      <p className="font-medium text-sm">ایمیل</p>
+                      <a href="mailto:info@azlab.ir" className="text-sm text-primary hover:underline ltr">
+                        info@azlab.ir
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <Phone className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <Phone className="h-5 w-5 text-primary ml-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-sm">Phone</p>
-                      <p className="text-sm text-muted-foreground">
-                        +971 4 XXX XXXX
+                      <p className="font-medium text-sm">تلفن</p>
+                      <p className="text-sm text-muted-foreground ltr">
+                        +98 21 XXXX XXXX
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <Clock className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                    <Clock className="h-5 w-5 text-primary ml-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-sm">Business Hours</p>
+                      <p className="font-medium text-sm">ساعات کاری</p>
                       <p className="text-sm text-muted-foreground">
-                        Sunday - Thursday: 9:00 - 18:00 GST
+                        شنبه تا چهارشنبه: ۹ تا ۱۸
                       </p>
                     </div>
                   </div>
@@ -346,37 +307,37 @@ export default function Contact() {
               {/* What to Expect */}
               <Card>
                 <CardHeader>
-                  <CardTitle>What to Expect</CardTitle>
+                  <CardTitle>خدمات ما</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-start">
-                    <CheckCircle2 className="h-4 w-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-success ml-2 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
-                      Detailed quotation within 48 hours
+                      مشاوره رایگان برای انتخاب تجهیزات
                     </p>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle2 className="h-4 w-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-success ml-2 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
-                      Clear pricing with no hidden fees
+                      ارائه قیمت شفاف و بدون هزینه پنهان
                     </p>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle2 className="h-4 w-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-success ml-2 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
-                      Technical specifications and certifications
+                      گارانتی معتبر و خدمات پس از فروش
                     </p>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle2 className="h-4 w-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-success ml-2 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
-                      Shipping options and lead times
+                      نصب و راه‌اندازی تخصصی
                     </p>
                   </div>
                   <div className="flex items-start">
-                    <CheckCircle2 className="h-4 w-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-4 w-4 text-success ml-2 mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-muted-foreground">
-                      Sample availability (if applicable)
+                      آموزش کامل اپراتورها
                     </p>
                   </div>
                 </CardContent>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavigationItem } from '@/data/navigation';
-import { ChevronRight } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface MegaMenuProps {
@@ -14,7 +14,7 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
     item.children?.[0]?.id || null
   );
 
-  if (item.id !== 'polymer-products' || !item.children) {
+  if (item.id !== 'lab-equipment' || !item.children) {
     return null;
   }
 
@@ -27,7 +27,7 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
           {/* Column 1: Product Families (3 cols) */}
           <div className="col-span-3 space-y-1">
             <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 px-3">
-              Product Families
+              دسته‌بندی محصولات
             </h4>
             {item.children.map((group) => (
               <button
@@ -37,27 +37,27 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
                   setActiveGroupId(group.id);
                 }}
                 className={cn(
-                  'w-full text-left px-3 py-2.5 rounded-md text-sm font-semibold transition-all duration-200',
+                  'w-full text-right px-3 py-2.5 rounded-md text-sm font-semibold transition-all duration-200',
                   activeGroupId === group.id
                     ? 'bg-primary/10 text-primary shadow-sm'
                     : 'text-foreground/70 hover:bg-primary/5 hover:text-primary hover:shadow-sm'
                 )}
               >
-                {group.label.en}
+                {group.label}
               </button>
             ))}
           </div>
 
           {/* Column 2: Key Materials for Selected Family (7 cols) */}
-          <div className="col-span-7 border-l border-border/40 pl-8">
+          <div className="col-span-7 border-r border-border/40 pr-8">
             {activeGroup && (
               <>
                 <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4">
-                  {activeGroup.label.en}
+                  {activeGroup.label}
                 </h4>
                 
                 {activeGroup.children && activeGroup.children.length > 0 && (
-                  <div className="space-y-4 max-h-[420px] overflow-y-auto pr-2 custom-scrollbar">
+                  <div className="space-y-4 max-h-[420px] overflow-y-auto pl-2 custom-scrollbar">
                     {activeGroup.children.map((category) => (
                       <div key={category.id} className="pb-3 border-b border-border/60">
                         {/* Category (Second Level) - Bold Primary */}
@@ -66,27 +66,9 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
                   onClick={onClose}
                   className="group inline-flex items-center justify-between text-sm font-bold text-primary hover:text-primary hover:bg-primary/5 transition-all w-full px-2 py-1.5 rounded-md -mx-2"
                 >
-                  <span>{category.label.en}</span>
-                  <ChevronRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span>{category.label}</span>
+                  <ChevronLeft className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
-
-                        {/* Subcategories (Third Level) - Smaller Muted */}
-                        {category.children && category.children.length > 0 && (
-                          <ul className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1">
-                            {category.children.map((subItem) => (
-                              <li key={subItem.id}>
-                                <Link
-                                  to={subItem.href || '#'}
-                                  onClick={onClose}
-                                  className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all hover:translate-x-0.5 py-1 px-2 rounded-md -mx-2"
-                                >
-                                  <ChevronRight className="h-3 w-3 text-border group-hover:text-primary transition-colors" />
-                                  <span>{subItem.label.en}</span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
                       </div>
                     ))}
                   </div>
@@ -96,12 +78,12 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
           </div>
 
           {/* Column 3: Help Block (2 cols) */}
-          <div className="col-span-2 border-l border-border/40 pl-6">
+          <div className="col-span-2 border-r border-border/40 pr-6">
             <div className="bg-muted/30 rounded-lg p-5 border border-border/60 space-y-4 h-fit sticky top-4">
               <div className="space-y-2">
-                <h4 className="font-bold text-sm text-foreground">Need Help Choosing?</h4>
+                <h4 className="font-bold text-sm text-foreground">نیاز به راهنمایی دارید؟</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Not sure which material is right for your application?
+                  مطمئن نیستید کدام دستگاه مناسب کاربرد شماست؟
                 </p>
               </div>
 
@@ -110,8 +92,8 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
                 onClick={onClose}
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary hover:bg-primary/5 transition-all group px-3 py-2 rounded-md -mx-3"
               >
-                Get Technical Help
-                <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                دریافت مشاوره فنی
+                <ChevronLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
               </Link>
 
               <div className="pt-3 border-t border-border/40">
@@ -120,8 +102,8 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
                   onClick={onClose}
                   className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all group px-3 py-1.5 rounded-md -mx-3"
                 >
-                  Browse All Products
-                  <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  مشاهده همه محصولات
+                  <ChevronLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </div>

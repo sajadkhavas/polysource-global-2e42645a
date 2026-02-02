@@ -5,24 +5,24 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-border/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x lg:divide-x-reverse divide-border/60">
           {/* Company */}
-          <div className="pt-8 lg:pt-0 lg:pr-8 first:pt-0">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">Company</h3>
+          <div className="pt-8 lg:pt-0 lg:pl-8 first:pt-0">
+            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">شرکت</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/sustainability" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Sustainability
+                  درباره ما
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Blog
+                  اخبار و مقالات
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  تماس با ما
                 </Link>
               </li>
             </ul>
@@ -30,60 +30,65 @@ export function Footer() {
 
           {/* Products */}
           <div className="pt-8 lg:pt-0 lg:px-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">Products</h3>
+            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">محصولات</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products?category=recycled" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Recycled Polymers
+                <Link to="/products?category=thermal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  تحلیل حرارتی
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=virgin" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Virgin Polymers
+                <Link to="/products?category=spectroscopy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  اسپکتروسکوپی
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=compounds" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Compounds & Masterbatches
+                <Link to="/products?category=microscopy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  میکروسکوپی
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=testing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  آزمون مواد
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Services */}
           <div className="pt-8 lg:pt-0 lg:px-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">Resources</h3>
+            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">خدمات</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/resources" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  TDS & SDS
+                  منابع فنی
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Request Quote
+                  درخواست مشاوره
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div className="pt-8 lg:pt-0 lg:pl-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">Contact</h3>
+          <div className="pt-8 lg:pt-0 lg:pr-8">
+            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">تماس</h3>
             <ul className="space-y-3">
               <li className="flex items-start text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
-                <span>Dubai, UAE</span>
+                <MapPin className="h-4 w-4 ml-2 mt-0.5 flex-shrink-0" />
+                <span>تهران، ایران</span>
               </li>
               <li className="flex items-center text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
-                <a href="mailto:hello@polysource.global" className="hover:text-foreground transition-colors">
-                  hello@polysource.global
+                <Mail className="h-4 w-4 ml-2 flex-shrink-0" />
+                <a href="mailto:info@azlab.ir" className="hover:text-foreground transition-colors ltr">
+                  info@azlab.ir
                 </a>
               </li>
               <li className="flex items-center text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>+971 4 XXX XXXX</span>
+                <Phone className="h-4 w-4 ml-2 flex-shrink-0" />
+                <span className="ltr">+98 21 XXXX XXXX</span>
               </li>
             </ul>
           </div>
@@ -92,14 +97,14 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} PolySource Global. All rights reserved.
+              © {new Date().getFullYear()} آزمایشگاه پیشرفته. تمامی حقوق محفوظ است.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex gap-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Privacy Policy
+                حریم خصوصی
               </Link>
               <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Terms of Service
+                شرایط استفاده
               </Link>
             </div>
           </div>
