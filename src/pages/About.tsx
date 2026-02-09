@@ -2,37 +2,37 @@ import { motion } from 'framer-motion';
 import { SEO } from '@/components/SEO';
 import { generateOrganizationSchema } from '@/lib/structured-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Globe, Target, Users, Award } from 'lucide-react';
+import { Globe, Target, Users, Award, Factory, Shield } from 'lucide-react';
 
 export default function About() {
   const values = [
     {
       icon: Target,
-      title: 'تعهد به کیفیت',
-      description: 'ارائه تجهیزات با کیفیت و استاندارد جهانی، همراه با گارانتی معتبر'
+      title: 'دقت و اطمینان',
+      description: 'ارائه تجهیزات صنعتی با بالاترین دقت و قابلیت اطمینان برای فرآیندهای حیاتی'
     },
     {
-      icon: Globe,
-      title: 'دانش روز',
-      description: 'به‌روز بودن با آخرین فناوری‌ها و تجهیزات آزمایشگاهی دنیا'
+      icon: Shield,
+      title: 'ایمنی صنعتی',
+      description: 'تمامی تجهیزات مطابق با استانداردهای ATEX، IECEx و CE برای محیط‌های خطرناک'
     },
     {
       icon: Users,
-      title: 'مشتری‌مداری',
-      description: 'پاسخگویی سریع و حرفه‌ای به نیازهای مشتریان در هر زمان'
+      title: 'تیم مهندسی متخصص',
+      description: 'مهندسان ابزار دقیق و اتوماسیون با سال‌ها تجربه در پروژه‌های صنعتی'
     },
     {
-      icon: Award,
-      title: 'تخصص فنی',
-      description: 'تیم متخصص با دانش فنی بالا در حوزه تجهیزات آزمایشگاهی'
+      icon: Globe,
+      title: 'نمایندگی‌های معتبر',
+      description: 'نماینده رسمی برندهای جهانی Siemens، Parker، Endress+Hauser و Dräger'
     }
   ];
 
   const organizationSchema = generateOrganizationSchema({
-    name: 'آزمایشگاه پیشرفته',
-    url: 'https://azlab.ir',
-    logo: 'https://azlab.ir/logo.png',
-    description: 'تأمین‌کننده تجهیزات آزمایشگاهی پیشرفته با بیش از ۱۵ سال تجربه',
+    name: 'پارس ابزار دقیق',
+    url: 'https://parsid.ir',
+    logo: 'https://parsid.ir/logo.png',
+    description: 'تأمین‌کننده تجهیزات ابزار دقیق و اتوماسیون صنعتی با بیش از ۲۰ سال تجربه',
     address: {
       addressLocality: 'تهران',
       addressCountry: 'ایران'
@@ -43,10 +43,11 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <SEO
         title="درباره ما"
-        description="شرکت آزمایشگاه پیشرفته با بیش از ۱۵ سال تجربه در تأمین تجهیزات آزمایشگاهی پیشرفته، خدمات‌رسانی به بیش از ۱۰۰ مرکز تحقیقاتی و صنعتی در سراسر ایران"
-        keywords="درباره آزمایشگاه پیشرفته, تجهیزات آزمایشگاهی, تأمین‌کننده تجهیزات"
+        description="شرکت پارس ابزار دقیق با بیش از ۲۰ سال تجربه در تأمین تجهیزات ابزار دقیق و اتوماسیون صنعتی، خدمات‌رسانی به صنایع نفت، گاز، پتروشیمی و نیروگاه"
+        keywords="درباره پارس ابزار دقیق, تجهیزات ابزار دقیق, اتوماسیون صنعتی"
         structuredData={organizationSchema}
       />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] text-primary-foreground py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,11 +56,11 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              همراه شما در مسیر پیشرفت علمی
+            <h1 className="text-4xl md:text-5xl font-black mb-6">
+              شریک مطمئن صنعت ایران
             </h1>
-            <p className="text-xl text-primary-foreground/90">
-              شرکت آزمایشگاه پیشرفته با هدف تأمین تجهیزات آزمایشگاهی با کیفیت و ارائه خدمات فنی تخصصی، در خدمت مراکز تحقیقاتی و صنعتی کشور است.
+            <p className="text-xl text-primary-foreground/85">
+              شرکت پارس ابزار دقیق با هدف تأمین تجهیزات ابزار دقیق و اتوماسیون صنعتی با کیفیت، در خدمت صنایع حیاتی کشور است.
             </p>
           </motion.div>
         </div>
@@ -74,16 +75,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">داستان ما</h2>
+              <h2 className="text-3xl font-black mb-6 text-foreground">داستان ما</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
                 <p>
-                  شرکت آزمایشگاه پیشرفته از سال ۱۳۸۸ فعالیت خود را در زمینه تأمین تجهیزات آزمایشگاهی آغاز کرد. با درک عمیق نیازهای آزمایشگاه‌های تحقیقاتی و صنعتی کشور، ما همواره در تلاش بوده‌ایم تا بهترین تجهیزات را با قیمت مناسب و خدمات پس از فروش عالی ارائه دهیم.
+                  شرکت پارس ابزار دقیق از سال ۱۳۸۳ فعالیت خود را در زمینه تأمین تجهیزات ابزار دقیق و اتوماسیون صنعتی آغاز کرد. با درک عمیق نیازهای صنایع نفت، گاز، پتروشیمی و نیروگاهی کشور، ما همواره بهترین تجهیزات را از برندهای معتبر جهانی ارائه می‌دهیم.
                 </p>
                 <p>
-                  تیم ما متشکل از مهندسان و کارشناسان متخصص است که سال‌ها تجربه در حوزه تجهیزات آزمایشگاهی دارند. این تخصص به ما امکان می‌دهد تا مشاوره فنی دقیق و راهنمایی صحیح برای انتخاب تجهیزات مناسب ارائه دهیم.
+                  تیم ما متشکل از مهندسان ابزار دقیق، اتوماسیون و کنترل است که تجربه اجرای بیش از ۲۰۰۰ پروژه صنعتی در سراسر کشور را دارند. از مشاوره اولیه تا نصب، کمیسیونینگ و پشتیبانی مادام‌العمر.
                 </p>
                 <p>
-                  امروز با افتخار به بیش از ۱۰۰ مرکز تحقیقاتی، دانشگاه و شرکت صنعتی خدمات‌رسانی می‌کنیم و بیش از ۵۰۰ دستگاه آزمایشگاهی را نصب و راه‌اندازی کرده‌ایم.
+                  امروز با افتخار به بیش از ۵۰۰ مشتری صنعتی خدمات‌رسانی می‌کنیم و نماینده رسمی برندهای Siemens، Parker Hannifin، Endress+Hauser، Dräger و Bronkhorst در ایران هستیم.
                 </p>
               </div>
             </motion.div>
@@ -100,10 +101,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">ارزش‌های ما</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              اصولی که در تمام فعالیت‌های ما جاری است
-            </p>
+            <h2 className="text-3xl font-black mb-4 text-foreground">ارزش‌های ما</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -115,15 +113,15 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full">
+                <Card className="h-full border-border/60">
                   <CardHeader>
                     <div className="flex items-start">
                       <div className="p-2 bg-primary/10 rounded-lg ml-4">
                         <value.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <CardTitle className="mb-2">{value.title}</CardTitle>
-                        <p className="text-muted-foreground">{value.description}</p>
+                        <CardTitle className="mb-2 text-base">{value.title}</CardTitle>
+                        <p className="text-muted-foreground text-sm">{value.description}</p>
                       </div>
                     </div>
                   </CardHeader>
@@ -143,32 +141,20 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-foreground">مزایای همکاری با ما</h2>
+              <h2 className="text-3xl font-black mb-6 text-foreground">مزایای همکاری با ما</h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <Card>
-                  <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">گارانتی معتبر</h3>
-                    <p className="text-sm text-muted-foreground">
-                      تمام محصولات با گارانتی رسمی و خدمات پس از فروش ارائه می‌شوند
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">پشتیبانی فنی</h3>
-                    <p className="text-sm text-muted-foreground">
-                      تیم فنی متخصص برای پشتیبانی و رفع مشکلات در کمترین زمان
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardContent className="pt-6">
-                    <h3 className="font-semibold mb-2">آموزش تخصصی</h3>
-                    <p className="text-sm text-muted-foreground">
-                      آموزش کامل اپراتورها پس از نصب و راه‌اندازی تجهیزات
-                    </p>
-                  </CardContent>
-                </Card>
+                {[
+                  { title: 'کالای اصل با گارانتی', desc: 'تمام تجهیزات اصل با سریال نامبر معتبر و گارانتی رسمی' },
+                  { title: 'پشتیبانی ۲۴/۷', desc: 'تیم فنی آماده پاسخگویی شبانه‌روزی برای خطوط تولید' },
+                  { title: 'نصب و کمیسیونینگ', desc: 'نصب تخصصی، راه‌اندازی و آموزش اپراتورها در محل' },
+                ].map(item => (
+                  <Card key={item.title} className="border-border/60">
+                    <CardContent className="pt-6">
+                      <h3 className="font-bold mb-2 text-sm">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -184,17 +170,18 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-4 text-foreground">تیم ما</h2>
+            <h2 className="text-3xl font-black mb-4 text-foreground">تیم ما</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              مهندسان، کارشناسان فنی و متخصصان با تجربه که متعهد به ارائه بهترین خدمات هستند
+              مهندسان ابزار دقیق، اتوماسیون و کنترل با تجربه اجرای پروژه‌های صنعتی بزرگ
             </p>
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
-            <Card>
+            <Card className="border-border/60">
               <CardContent className="pt-6 text-center">
+                <Factory className="h-12 w-12 mx-auto text-primary/40 mb-4" />
                 <p className="text-muted-foreground">
-                  تیم ما متشکل از متخصصان حوزه تجهیزات آزمایشگاهی است که سال‌ها تجربه در زمینه نصب، راه‌اندازی و پشتیبانی دستگاه‌های پیشرفته دارند.
+                  تیم ما متشکل از مهندسان متخصص ابزار دقیق و اتوماسیون با تجربه اجرای پروژه در صنایع نفت، گاز، پتروشیمی، نیروگاه و معادن است.
                 </p>
               </CardContent>
             </Card>

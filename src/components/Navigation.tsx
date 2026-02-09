@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, Globe } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useRFQ } from '@/contexts/RFQContext';
@@ -18,7 +18,7 @@ export function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const { products } = useRFQ();
 
-  const labEquipmentItem = navigationData.find(item => item.id === 'lab-equipment');
+  const industrialItem = navigationData.find(item => item.id === 'industrial-equipment');
   const servicesItem = navigationData.find(item => item.id === 'services');
   const newsItem = navigationData.find(item => item.id === 'insights');
   const aboutItem = navigationData.find(item => item.id === 'about');
@@ -36,62 +36,60 @@ export function Navigation() {
           <div className="flex items-center justify-between py-3 border-b border-border/50">
             <div className="flex items-center gap-4">
               <Link to="/" className="flex items-center gap-2.5">
-                <div className="h-9 w-9 rounded-lg bg-primary" aria-hidden="true" />
+                <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center" aria-hidden="true">
+                  <span className="text-primary-foreground font-black text-sm">PID</span>
+                </div>
                 <div>
-                  <span className="text-xl font-bold text-foreground block leading-none">آزمایشگاه پیشرفته</span>
-                  <span className="text-xs text-muted-foreground block mt-0.5">تأمین تجهیزات آزمایشگاهی پیشرفته</span>
+                  <span className="text-xl font-black text-foreground block leading-none">پارس ابزار دقیق</span>
+                  <span className="text-xs text-muted-foreground block mt-0.5">تجهیزات ابزار دقیق و اتوماسیون صنعتی</span>
                 </div>
               </Link>
             </div>
             
             <div className="flex items-center gap-6 text-xs text-muted-foreground">
               <div className="flex items-center gap-1.5">
-                <span className="font-semibold text-foreground">+۱۰۰</span>
-                <span>مشتری فعال</span>
+                <span className="font-bold text-foreground">+۵۰۰</span>
+                <span>مشتری صنعتی</span>
               </div>
               <div className="h-3 w-px bg-border" />
               <div className="flex items-center gap-1.5">
-                <span className="font-semibold text-foreground">+۵۰۰</span>
-                <span>دستگاه نصب‌شده</span>
+                <span className="font-bold text-foreground">+۲۰۰۰</span>
+                <span>پروژه اجرا شده</span>
               </div>
             </div>
           </div>
 
           {/* Bottom layer: Navigation + Actions */}
           <div className="relative flex items-center justify-between h-14">
-            {/* Center: Main Navigation */}
             <div className="flex items-center gap-1">
-              {/* Lab Equipment with Mega Menu */}
-              {labEquipmentItem && (
+              {industrialItem && (
                 <div
-                  onMouseEnter={() => setMegaMenuOpen('lab-equipment')}
+                  onMouseEnter={() => setMegaMenuOpen('industrial-equipment')}
                   onMouseLeave={() => setMegaMenuOpen(null)}
                 >
                   <Link
-                    to={labEquipmentItem.href || '/products'}
+                    to={industrialItem.href || '/products'}
                     className={cn(
-                      'text-sm font-semibold transition-colors px-4 py-2 rounded-md',
+                      'text-sm font-bold transition-colors px-4 py-2 rounded-md',
                       isActive('/products')
                         ? 'bg-primary/10 text-primary'
                         : 'text-foreground/90 hover:bg-muted hover:text-primary'
                     )}
                   >
-                    {labEquipmentItem.label}
+                    {industrialItem.label}
                   </Link>
                 </div>
               )}
               
-              {/* MegaMenu positioned relative to entire nav container */}
-              {megaMenuOpen === 'lab-equipment' && labEquipmentItem && (
+              {megaMenuOpen === 'industrial-equipment' && industrialItem && (
                 <div
-                  onMouseEnter={() => setMegaMenuOpen('lab-equipment')}
+                  onMouseEnter={() => setMegaMenuOpen('industrial-equipment')}
                   onMouseLeave={() => setMegaMenuOpen(null)}
                 >
-                  <MegaMenu item={labEquipmentItem} onClose={() => setMegaMenuOpen(null)} />
+                  <MegaMenu item={industrialItem} onClose={() => setMegaMenuOpen(null)} />
                 </div>
               )}
 
-              {/* Other Nav Items with Dropdowns */}
               {servicesItem && (
                 <DesktopDropdown
                   item={servicesItem}
@@ -118,20 +116,17 @@ export function Navigation() {
               )}
             </div>
 
-            {/* Left: Actions */}
             <div className="flex items-center gap-3">
-              {/* Browse Products Link */}
               <Button variant="outline" size="sm" asChild>
                 <Link to="/products">مشاهده محصولات</Link>
               </Button>
 
-              {/* RFQ Basket */}
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="sm" className="relative">
                     <ShoppingCart className="h-4 w-4" />
                     {products.length > 0 && (
-                      <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
+                      <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent text-accent-foreground">
                         {products.length}
                       </Badge>
                     )}
@@ -139,7 +134,7 @@ export function Navigation() {
                 </SheetTrigger>
                 <SheetContent side="left">
                   <SheetHeader>
-                    <SheetTitle>سبد درخواست</SheetTitle>
+                    <SheetTitle>سبد استعلام</SheetTitle>
                   </SheetHeader>
                   <div className="mt-4 space-y-4">
                     {products.length === 0 ? (
@@ -150,12 +145,12 @@ export function Navigation() {
                           <div key={product.id} className="flex items-start justify-between p-3 border border-border rounded-lg">
                             <div>
                               <p className="font-medium text-sm">{product.name}</p>
-                              <p className="text-xs text-muted-foreground">{product.type}</p>
+                              <p className="text-xs text-muted-foreground font-mono ltr">{product.type}</p>
                             </div>
                           </div>
                         ))}
-                        <Button asChild className="w-full">
-                          <Link to="/contact">درخواست مشاوره</Link>
+                        <Button asChild variant="cta" className="w-full">
+                          <Link to="/contact">ارسال استعلام قیمت</Link>
                         </Button>
                       </>
                     )}
@@ -163,31 +158,29 @@ export function Navigation() {
                 </SheetContent>
               </Sheet>
 
-              {/* Request Quote CTA */}
-              <Button asChild>
-                <Link to="/contact">درخواست مشاوره</Link>
+              <Button asChild variant="cta">
+                <Link to="/contact">استعلام قیمت</Link>
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Mobile: Single row header */}
+        {/* Mobile header */}
         <div className="flex lg:hidden h-16 items-center justify-between">
-          {/* Right: Brand */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded bg-primary" aria-hidden="true" />
-            <span className="text-lg font-bold text-foreground">آزمایشگاه پیشرفته</span>
+            <div className="h-8 w-8 rounded bg-primary flex items-center justify-center" aria-hidden="true">
+              <span className="text-primary-foreground font-black text-xs">PID</span>
+            </div>
+            <span className="text-lg font-black text-foreground">پارس ابزار دقیق</span>
           </Link>
 
-          {/* Left: Controls */}
           <div className="flex items-center gap-2">
-            {/* RFQ Basket */}
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="sm" className="relative">
                   <ShoppingCart className="h-4 w-4" />
                   {products.length > 0 && (
-                    <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent">
+                    <Badge className="absolute -left-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center bg-accent text-accent-foreground">
                       {products.length}
                     </Badge>
                   )}
@@ -195,7 +188,7 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent side="left">
                 <SheetHeader>
-                  <SheetTitle>سبد درخواست</SheetTitle>
+                  <SheetTitle>سبد استعلام</SheetTitle>
                 </SheetHeader>
                 <div className="mt-4 space-y-4">
                   {products.length === 0 ? (
@@ -206,12 +199,12 @@ export function Navigation() {
                         <div key={product.id} className="flex items-start justify-between p-3 border border-border rounded-lg">
                           <div>
                             <p className="font-medium text-sm">{product.name}</p>
-                            <p className="text-xs text-muted-foreground">{product.type}</p>
+                            <p className="text-xs text-muted-foreground font-mono ltr">{product.type}</p>
                           </div>
                         </div>
                       ))}
-                      <Button asChild className="w-full">
-                        <Link to="/contact">درخواست مشاوره</Link>
+                      <Button asChild variant="cta" className="w-full">
+                        <Link to="/contact">ارسال استعلام قیمت</Link>
                       </Button>
                     </>
                   )}
@@ -219,7 +212,6 @@ export function Navigation() {
               </SheetContent>
             </Sheet>
 
-            {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="sm"
@@ -230,7 +222,6 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border max-h-[70vh] overflow-y-auto">
             <MobileNav items={navigationData} onClose={() => setMobileMenuOpen(false)} />

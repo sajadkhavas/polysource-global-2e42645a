@@ -2,70 +2,68 @@ import { motion } from 'framer-motion';
 import { SEO } from '@/components/SEO';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Award, CheckCircle2, Target, FileText, Users, Globe } from 'lucide-react';
+import { Award, CheckCircle2, Target, Shield, AlertTriangle, FileText } from 'lucide-react';
 
 export default function Sustainability() {
   const principles = [
     {
+      icon: Shield,
+      title: 'ایمنی عملکردی',
+      description: 'تجهیزات مطابق با SIL (Safety Integrity Level) و الزامات ایمنی عملکردی IEC 61508'
+    },
+    {
+      icon: AlertTriangle,
+      title: 'محیط‌های خطرناک',
+      description: 'تمامی تجهیزات مرتبط دارای تاییدیه ATEX و IECEx برای مناطق Zone 0, 1, 2'
+    },
+    {
       icon: Target,
-      title: 'کیفیت و دقت',
-      description: 'ارائه تجهیزات با بالاترین دقت و کیفیت برای نتایج قابل اتکا'
+      title: 'دقت و قابلیت ردیابی',
+      description: 'کالیبراسیون مطابق استانداردهای بین‌المللی با قابلیت ردیابی به مراجع ملی و بین‌المللی'
     },
     {
       icon: FileText,
-      title: 'استانداردهای جهانی',
-      description: 'تمام تجهیزات مطابق با استانداردهای ISO و استانداردهای بین‌المللی'
-    },
-    {
-      icon: Users,
-      title: 'آموزش و توانمندسازی',
-      description: 'آموزش تخصصی برای استفاده بهینه از تجهیزات و کاهش خطاها'
-    },
-    {
-      icon: Globe,
-      title: 'پشتیبانی مداوم',
-      description: 'پشتیبانی فنی مداوم برای حفظ عملکرد بهینه تجهیزات'
+      title: 'مستندسازی کامل',
+      description: 'ارائه مستندات فنی کامل شامل دیتاشیت، گواهینامه، نقشه و دستورالعمل نگهداری'
     }
   ];
 
   const certifications = [
+    'ATEX (2014/34/EU)',
+    'IECEx',
+    'SIL 2 / SIL 3',
+    'CE Marking',
     'ISO 9001:2015',
     'ISO 17025',
-    'CE Marking',
-    'گواهی کالیبراسیون',
-    'استاندارد ملی ایران'
+    'ISO 14001',
+    'UL Listed',
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="تعهد به کیفیت"
-        description="تعهد ما به ارائه تجهیزات با کیفیت، مطابق با استانداردهای جهانی و پشتیبانی مداوم برای مشتریان"
-        keywords="کیفیت تجهیزات, استانداردهای ISO, کالیبراسیون, پشتیبانی فنی"
+        title="استانداردها و گواهینامه‌ها"
+        description="تجهیزات ما مطابق با استانداردهای ATEX, IECEx, SIL, CE و ISO هستند. تعهد به ایمنی و دقت صنعتی."
+        keywords="ATEX, IECEx, SIL, استانداردهای صنعتی, ایمنی, کالیبراسیون, گواهینامه"
       />
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-success/20 to-success/5 py-20 border-b border-success/20">
+
+      <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] text-primary-foreground py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl"
-          >
-            <Badge variant="outline" className="mb-4 border-success text-success">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
+            <Badge className="mb-4 bg-accent text-accent-foreground border-none font-bold">
               <Award className="h-3 w-3 ml-1" />
-              تعهد به کیفیت
+              استانداردها و ایمنی
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              کیفیت، اعتماد، اطمینان
+            <h1 className="text-4xl md:text-5xl font-black mb-6">
+              دقت، ایمنی، اعتماد
             </h1>
-            <p className="text-xl text-muted-foreground">
-              ما متعهد به ارائه تجهیزات با کیفیت، مطابق با استانداردهای جهانی و ارائه خدمات پشتیبانی مداوم هستیم.
+            <p className="text-xl text-primary-foreground/85">
+              تعهد ما به ارائه تجهیزات مطابق با بالاترین استانداردهای بین‌المللی ایمنی و کیفیت
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Principles */}
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -77,14 +75,14 @@ export default function Sustainability() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full">
+                <Card className="h-full border-border/60">
                   <CardHeader>
                     <div className="flex items-start">
-                      <div className="p-2 bg-success/10 rounded-lg ml-4">
-                        <principle.icon className="h-6 w-6 text-success" />
+                      <div className="p-2 bg-accent/10 rounded-lg ml-4">
+                        <principle.icon className="h-6 w-6 text-accent" />
                       </div>
                       <div>
-                        <CardTitle className="mb-2">{principle.title}</CardTitle>
+                        <CardTitle className="mb-2 text-base">{principle.title}</CardTitle>
                         <CardDescription>{principle.description}</CardDescription>
                       </div>
                     </div>
@@ -96,16 +94,15 @@ export default function Sustainability() {
         </div>
       </section>
 
-      {/* Certifications */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-foreground">گواهینامه‌ها و استانداردها</h2>
-            <Card>
+            <h2 className="text-3xl font-black mb-6 text-foreground">گواهینامه‌ها و استانداردها</h2>
+            <Card className="border-border/60">
               <CardContent className="pt-6">
                 <div className="flex flex-wrap gap-3">
                   {certifications.map(cert => (
-                    <Badge key={cert} variant="secondary" className="text-sm">
+                    <Badge key={cert} variant="secondary" className="text-sm font-mono">
                       {cert}
                     </Badge>
                   ))}
@@ -116,28 +113,21 @@ export default function Sustainability() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-20 bg-success/5 border-y border-success/20">
+      <section className="py-20 bg-primary/5 border-y border-primary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <p className="text-4xl font-bold text-foreground mb-2">+۵۰۰</p>
-                <p className="text-sm text-muted-foreground">دستگاه نصب و راه‌اندازی شده</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <p className="text-4xl font-bold text-foreground mb-2">۹۸٪</p>
-                <p className="text-sm text-muted-foreground">رضایت مشتریان</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <p className="text-4xl font-bold text-foreground mb-2">۲۴/۷</p>
-                <p className="text-sm text-muted-foreground">پشتیبانی فنی</p>
-              </CardContent>
-            </Card>
+            {[
+              { value: '+۲۰۰۰', label: 'پروژه اجرا شده' },
+              { value: '۹۹.۵٪', label: 'رضایت مشتریان' },
+              { value: '۲۴/۷', label: 'پشتیبانی فنی' },
+            ].map(stat => (
+              <Card key={stat.label} className="text-center border-border/60">
+                <CardContent className="pt-6">
+                  <p className="text-4xl font-black text-foreground mb-2">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
