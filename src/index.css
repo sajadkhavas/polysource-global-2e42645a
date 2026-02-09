@@ -2,46 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Industrial Instrumentation Design System
+   Primary: Deep Navy Blue (#1A237E)
+   Accent/CTA: Safety Orange (#F57C00)
+   Neutral: Slate Gray
+   All colors in HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 210 75% 12%;
+    --background: 220 20% 97%;
+    --foreground: 232 50% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 75% 12%;
+    --card-foreground: 232 50% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 75% 12%;
+    --popover-foreground: 232 50% 12%;
 
-    --primary: 210 75% 25%;
+    --primary: 232 66% 30%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 210 75% 15%;
+    --secondary: 200 15% 90%;
+    --secondary-foreground: 200 18% 25%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 15% 45%;
+    --muted: 210 12% 93%;
+    --muted-foreground: 200 10% 45%;
 
-    --accent: 145 60% 45%;
+    --accent: 30 100% 48%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 210 75% 25%;
+    --border: 210 18% 85%;
+    --input: 210 18% 85%;
+    --ring: 232 66% 30%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --hero-gradient-start: 210 80% 20%;
-    --hero-gradient-end: 210 75% 30%;
-    
-    --success: 145 60% 45%;
+    --hero-gradient-start: 232 70% 16%;
+    --hero-gradient-end: 232 60% 28%;
+
+    --success: 145 60% 40%;
     --success-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
@@ -55,38 +58,38 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 75% 8%;
+    --background: 232 50% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 210 70% 12%;
+    --card: 232 45% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 70% 12%;
+    --popover: 232 45% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 210 60% 55%;
-    --primary-foreground: 210 75% 8%;
+    --primary: 232 55% 50%;
+    --primary-foreground: 232 50% 6%;
 
-    --secondary: 210 40% 18%;
+    --secondary: 200 25% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 15%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 232 30% 14%;
+    --muted-foreground: 200 12% 60%;
 
-    --accent: 145 55% 50%;
+    --accent: 30 95% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 40% 20%;
-    --input: 210 40% 20%;
-    --ring: 210 60% 55%;
+    --border: 232 30% 20%;
+    --input: 232 30% 20%;
+    --ring: 232 55% 50%;
 
-    --hero-gradient-start: 210 75% 15%;
-    --hero-gradient-end: 210 70% 22%;
-    
-    --success: 145 55% 50%;
+    --hero-gradient-start: 232 60% 10%;
+    --hero-gradient-end: 232 55% 20%;
+
+    --success: 145 55% 45%;
     --success-foreground: 0 0% 100%;
 
     --sidebar-background: 240 5.9% 10%;
@@ -111,7 +114,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Vazirmatn', 'Roboto', sans-serif;
   }
 
   /* Custom scrollbar for mega menu */

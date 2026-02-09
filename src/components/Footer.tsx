@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x lg:divide-x-reverse divide-border/60">
           {/* Company */}
           <div className="pt-8 lg:pt-0 lg:pl-8 first:pt-0">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">شرکت</h3>
+            <h3 className="font-black text-foreground mb-4 text-sm uppercase tracking-wide">شرکت</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -17,7 +17,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  اخبار و مقالات
+                  دانش فنی و مقالات
                 </Link>
               </li>
               <li>
@@ -30,26 +30,31 @@ export function Footer() {
 
           {/* Products */}
           <div className="pt-8 lg:pt-0 lg:px-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">محصولات</h3>
+            <h3 className="font-black text-foreground mb-4 text-sm uppercase tracking-wide">تجهیزات</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products?category=thermal" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  تحلیل حرارتی
+                <Link to="/products?category=gas-generators" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  ژنراتورهای گاز
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=spectroscopy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  اسپکتروسکوپی
+                <Link to="/products?category=lab-pumps" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  پمپ‌های آزمایشگاهی
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=microscopy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  میکروسکوپی
+                <Link to="/products?category=gas-detectors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  دتکتورهای گاز
                 </Link>
               </li>
               <li>
-                <Link to="/products?category=testing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  آزمون مواد
+                <Link to="/products?category=flow-meters" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  فلومتر و فلوکنترلر
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=plc-equipment" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  تجهیزات PLC
                 </Link>
               </li>
             </ul>
@@ -57,16 +62,21 @@ export function Footer() {
 
           {/* Services */}
           <div className="pt-8 lg:pt-0 lg:px-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">خدمات</h3>
+            <h3 className="font-black text-foreground mb-4 text-sm uppercase tracking-wide">خدمات</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/resources" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  منابع فنی
+                  دیتاشیت و کاتالوگ
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  درخواست مشاوره
+                  استعلام قیمت
+                </Link>
+              </li>
+              <li>
+                <Link to="/sustainability" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  استانداردها و گواهینامه‌ها
                 </Link>
               </li>
             </ul>
@@ -74,7 +84,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="pt-8 lg:pt-0 lg:pr-8">
-            <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wide">تماس</h3>
+            <h3 className="font-black text-foreground mb-4 text-sm uppercase tracking-wide">تماس</h3>
             <ul className="space-y-3">
               <li className="flex items-start text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 ml-2 mt-0.5 flex-shrink-0" />
@@ -82,8 +92,8 @@ export function Footer() {
               </li>
               <li className="flex items-center text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 ml-2 flex-shrink-0" />
-                <a href="mailto:info@azlab.ir" className="hover:text-foreground transition-colors ltr">
-                  info@azlab.ir
+                <a href="mailto:info@parsid.ir" className="hover:text-foreground transition-colors ltr">
+                  info@parsid.ir
                 </a>
               </li>
               <li className="flex items-center text-sm text-muted-foreground">
@@ -97,7 +107,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} آزمایشگاه پیشرفته. تمامی حقوق محفوظ است.
+              © {new Date().getFullYear()} پارس ابزار دقیق. تمامی حقوق محفوظ است.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

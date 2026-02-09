@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Vazirmatn', 'sans-serif'],
+        sans: ['Vazirmatn', 'Roboto', 'sans-serif'],
+        mono: ['Roboto Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
