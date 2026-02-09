@@ -115,6 +115,18 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Vazirmatn', 'Roboto', sans-serif;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.08;
+    background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.35) 1px, transparent 0);
+    background-size: 3px 3px;
   }
 
   /* Custom scrollbar for mega menu */
