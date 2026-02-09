@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingCart, ShieldCheck, Factory, BriefcaseBusiness } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -18,6 +18,7 @@ export function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [isShrunk, setIsShrunk] = useState(false);
   const { products } = useRFQ();
+  const industrialMenuRef = useRef<HTMLDivElement | null>(null);
 
   const industrialItem = navigationData.find(item => item.id === 'industrial-equipment');
   const servicesItem = navigationData.find(item => item.id === 'services');
@@ -32,6 +33,28 @@ export function Navigation() {
   }, []);
 
   const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + '/');
+
+
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!industrialMenuRef.current?.contains(event.target as Node)) {
+        setMegaMenuOpen((prev) => (prev === 'industrial-equipment' ? null : prev));
+      }
+    };
+
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMegaMenuOpen((prev) => (prev === 'industrial-equipment' ? null : prev));
+      }
+    };
+
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onEscape);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onEscape);
+    };
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0F172A]/80 backdrop-blur-xl">
@@ -87,19 +110,23 @@ export function Navigation() {
           <div className="flex items-center gap-7 justify-self-center">
             {industrialItem && (
               <div
+                ref={industrialMenuRef}
                 onMouseEnter={() => setMegaMenuOpen('industrial-equipment')}
               >
-                <Link
-                  to={industrialItem.href || '/products'}
+                <button
+                  type="button"
+                  onClick={() => setMegaMenuOpen((prev) => (prev === 'industrial-equipment' ? null : 'industrial-equipment'))}
+                  aria-expanded={megaMenuOpen === 'industrial-equipment'}
+                  aria-controls="industrial-mega-menu"
                   className={cn('rounded-md px-3 py-2 text-sm font-semibold transition', isActive('/products') ? 'text-cyan-300' : 'text-slate-100 hover:text-cyan-300')}
                 >
                   {industrialItem.label}
                 </button>
-              </div>
-            )}
 
-            {megaMenuOpen === 'industrial-equipment' && industrialItem && (
-              <MegaMenu item={industrialItem} onClose={() => setMegaMenuOpen(null)} />
+                {megaMenuOpen === 'industrial-equipment' && (
+                  <MegaMenu item={industrialItem} onClose={() => setMegaMenuOpen(null)} />
+                )}
+              </div>
             )}
 
             {servicesItem && (
