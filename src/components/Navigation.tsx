@@ -89,9 +89,8 @@ export function Navigation() {
               <div
                 onMouseEnter={() => setMegaMenuOpen('industrial-equipment')}
               >
-                <button
-                  type="button"
-                  onClick={() => setMegaMenuOpen('industrial-equipment')}
+                <Link
+                  to={industrialItem.href || '/products'}
                   className={cn('rounded-md px-3 py-2 text-sm font-semibold transition', isActive('/products') ? 'text-cyan-300' : 'text-slate-100 hover:text-cyan-300')}
                 >
                   {industrialItem.label}

@@ -9,7 +9,6 @@ import {
   Gauge,
   ShieldCheck,
   Wind,
-  X,
 } from 'lucide-react';
 import { NavigationItem } from '@/data/navigation';
 import { cn } from '@/lib/utils';
@@ -118,17 +117,6 @@ export function MegaMenu({ item, onClose }: MegaMenuProps) {
   return (
     <div className="hidden lg:block absolute left-0 right-0 top-full z-[100] border-t border-white/10 bg-[#0F172A]/90 backdrop-blur-xl shadow-2xl shadow-black/30">
       <div className="mx-auto max-w-[1380px] px-6 py-8">
-        <div className="mb-4 flex justify-end">
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="بستن منوی تجهیزات صنعتی"
-            className="inline-flex items-center gap-1 rounded-md border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-200 transition hover:bg-white/10"
-          >
-            بستن
-            <X className="h-3.5 w-3.5" />
-          </button>
-        </div>
         <div className="grid grid-cols-[25%_55%_20%] gap-6">
           <div className="space-y-2 rounded-2xl border border-white/10 bg-white/5 p-3">
             {industrialCategories.map((group) => {
